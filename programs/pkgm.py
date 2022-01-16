@@ -5,4 +5,4 @@ def downloadrepo():
     filecontent = requests.get(url)
     open('repo','wb').write(filecontent.content)
 def install_package(package_name):
-    print("test")
+    repofile = open('repo')

@@ -4,5 +4,11 @@ def downloadrepo():
     url = "https://pastebin.com/raw/sh4BtXGB"
     filecontent = requests.get(url)
     open('repo','wb').write(filecontent.content)
-def install_package(package_name):
+def install(package_name):
     repofile = open('repo')
+    readedfile = repofile.read()
+    nameofpkg = readedfile.split('=', 1)[-2]
+    linkofpkg = readedfile.split('=', 1)[-1]
+    print(nameofpkg, linkofpkg)
+    url = linkofpkg
+    filecontent = requests.get(url)

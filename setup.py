@@ -1,7 +1,7 @@
 import os
 from os.path import exists
 import getpass
-import hashlib
+import bcrypt
 print("Please wait until we install the dependencies...")
 os.system("pip3 install --user psutil")
 os.system("pip3 install --user gputil")
@@ -12,10 +12,9 @@ if exists('pswdir') | exists('usrdir'):
     exit(0)
 username = input("Username: ")
 password = getpass.getpass("Password (No echo): ")
-encp = password.encode()
-d = hashlib.sha256(encp)
-hash = d.hexdigest()
+salt = bcrypt.gensalt()
+hashed = bcrypt.hashpw(passwd, salt)
 usrdir = open("usrdir","w")
 pswdir = open("pswdir","w")
 usrdir.write(username)
-pswdir.write(hash)
+pswdir.write(hashed)

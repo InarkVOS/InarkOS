@@ -4,6 +4,8 @@ from programs import __all__
 def check(cmd):
     if cmd.startswith("dir") or cmd.startswith("ls"):
         ls.listdirectory(cmd[3:])
+    elif cmd.startswith("./"):
+        programmanager.run(cmd[2:])
     elif cmd.startswith("micro"):
         micro.run()
     elif cmd.startswith("echo "):
@@ -22,7 +24,5 @@ def check(cmd):
         exit.rl()          
     elif cmd.startswith("pkgm downloadrepo"):
         pkgm.downloadrepo()
-    elif cmd.startswith("pkgm install "):
-        pkgm.install(cmd)
     else:            
         print("Command not found do help for help")

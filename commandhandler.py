@@ -24,5 +24,12 @@ def check(cmd):
         exit.rl()          
     elif cmd.startswith("pkgm downloadrepo"):
         pkgm.downloadrepo()
+<<<<<<< HEAD
+=======
+    elif cmd.startswith("pkgm install "):
+        pkgm.install(cmd)
+    elif cmd.startswith("./"):
+        executables.run(cmd)
+>>>>>>> eab552289164e59aed0f5ab5d726e60da98ba0fc
     else:            
         print("Command not found do help for help")

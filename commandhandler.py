@@ -4,6 +4,8 @@ from programs import __all__
 def check(cmd):
     if cmd.startswith("dir") or cmd.startswith("ls"):
         ls.listdirectory(cmd[3:])
+    elif cmd.startswith("micro"):
+        micro.run()
     elif cmd.startswith("echo "):
         echo.echo(cmd)
     elif cmd.startswith("help"):

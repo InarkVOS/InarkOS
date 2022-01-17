@@ -10,5 +10,5 @@ def install(package_name):
     nameofpkg = readedfile.split('=', 1)[-2]
     linkofpkg = readedfile.split('=', 1)[-1]
     print(nameofpkg, linkofpkg)
-    url = linkofpkg
-    filecontent = requests.get(url)
+    filecontent = requests.get(linkofpkg)
+    open('./programs/' + nameofpkg + '.py', 'wb').write(filecontent.content)

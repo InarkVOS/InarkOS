@@ -1,0 +1,3 @@
+
+Usage for command 'animate':
+animate [text]

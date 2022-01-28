@@ -3,12 +3,7 @@ from os.path import exists
 import getpass
 import hashlib
 print("Please wait until we install the dependencies...")
-os.sytem("pip3 install --user requests")
-tof = input("Install optional dependencies? (Type no if using termux):  ")
-if tof:
-    os.system("pip3 install --user psutil")
-    os.system("pip3 install --user gputil")
-    os.system("pip3 install --user tabulate")
+os.system("pip3 install --user requests")
 print("Done...")
 if exists('pswdir') | exists('usrdir'):
     print("We detected an invalid file (storage) please run init.py again")

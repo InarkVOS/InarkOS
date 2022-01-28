@@ -6,8 +6,6 @@ def check(cmd):
         ls.listdirectory(cmd[3:])
     elif cmd.startswith("./"):
         programmanager.run(cmd[2:])
-    elif cmd.startswith("micro"):
-        micro.run()
     elif cmd.startswith("echo "):
         echo.echo(cmd)
     elif cmd.startswith("help"):
@@ -26,7 +24,7 @@ def check(cmd):
         pkgm.downloadrepo()
     elif cmd.startswith("pkgm install "):
         pkgm.install(cmd)
-    elif cmd.startswith("./"):
-        executables.run(cmd)
+    elif cmd.startswith("tutr "):
+        tutr.tutr(cmd)
     else:            
         print("Command not found do help for help")

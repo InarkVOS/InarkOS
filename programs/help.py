@@ -1,2 +1,2 @@
 def help():
-        print('Commands: "echo","help","version","animate","fetchinfo","clear","exit"')
+        print('Commands: "echo","help","version","animate","clear","exit","ls"')

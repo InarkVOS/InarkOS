@@ -8,3 +8,5 @@ programs/__pycache__/*.*
 repo
 pkgprograms/tstfile
 .vscode/*
+pkgprograms
+pkgprograms/*

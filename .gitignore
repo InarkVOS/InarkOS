@@ -5,16 +5,4 @@ __pycache__/*.*
 programs/__pycache__
 programs/__pycache__/*.*
 repo
-programs/*
-!programs/__init.py
-!programs/animate.py
-!programs/clear.py
-!programs/echo.py
-!programs/exit.py
-!programs/help.py
-!programs/ls.py
-!programs/pkgm.py
-!programs/programmanager.py
-!programs/tutr.py
-!programs/version.py
 .vscode/*

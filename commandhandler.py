@@ -43,7 +43,7 @@ def check(cmd):
             print(f"Command {i+1}. " + file[i].replace('\n', '').split(' ')[2])
     elif cmd.lower().startswith("pkgm run"):
         if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
-            os.system("python3 pkgprograms/" + cmd.split(' ')[2] + '.py')
+            os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
         else:
             file = open('programs/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):

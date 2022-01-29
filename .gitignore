@@ -6,5 +6,5 @@ programs/variables.py
 programs/__pycache__
 programs/__pycache__/*.*
 repo
-pkgprograms/tstfile
+pkgprograms/
 .vscode/*

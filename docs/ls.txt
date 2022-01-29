@@ -1,3 +1,4 @@
 
 List the files in the home directory.
-Usage: ls
+If no directory is supplied then it will default to the current directory
+Usage: ls [directory]

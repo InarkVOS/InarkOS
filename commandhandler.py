@@ -39,6 +39,6 @@ def check(cmd):
         execute.exec(cmd)
     else:
         if cmd.lower()+'.py' in os.listdir("pkgprograms"):
-            os.system("python3 pkgprograms/" + cmd + ".py")
+            os.system("python pkgprograms/" + cmd + ".py")
         else:
             print("Command not found do help for help")

@@ -3,7 +3,7 @@ from os.path import exists
 import getpass
 import hashlib
 print("Please wait until we install the dependencies...")
-os.system("pip3 install --user requests")
+os.system("pip3 install --user requests psutil colorama termcolor py-cpuinfo")
 print("Done...")
 if exists('pswdir') | exists('usrdir'):
     print("We detected an invalid file (storage) please run init.py again")

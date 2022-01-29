@@ -1,0 +1,4 @@
+
+Experimental not ready package manager.
+Usage: check the source code
+Note: This is not ready for use or even to experiment with it if you got any ideas to make this working please make a pull request!

@@ -1,0 +1,3 @@
+
+List the files in the home directory.
+Usage: ls

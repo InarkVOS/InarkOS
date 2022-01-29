@@ -26,5 +26,7 @@ def check(cmd):
         pkgm.install(cmd)
     elif cmd.lower().startswith("tutr "):
         tutr.tutr(cmd)
+    elif cmd.lower().startswith("exec "):
+        execute.exec(cmd)
     else:            
         print("Command not found do help for help")

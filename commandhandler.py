@@ -42,14 +42,12 @@ def check(cmd):
         for i in range(len(file)):
             print(f"Command {i+1}. " + file[i].replace('\n', '').split(' ')[2])
     elif cmd.lower().startswith("pkgm run"):
-        if cmd.split(' ')[2] in os.litdir('pkgprograms'):
+        if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
             os.system("python3 pkgprograms/" + cmd.split(' ')[2] + '.py')
         else:
-            file = open('pkgprograms/pkgnames.txt', 'r').readlines()
+            file = open('programs/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):
-                if file[i].split(' ')[3] == cmd.split(' ')[2]:
-                    print('yes')
-                else:
-                    print("Command not found")
+                if file[i].split(' ')[2] == cmd.split(' ')[2]:
+                    print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])
     else:
         print("Command not found run help for list of commands")

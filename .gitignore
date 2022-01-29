@@ -17,3 +17,4 @@ programs/*
 !programs/programmanager.py
 !programs/tutr.py
 !programs/version.py
+.vscode/*

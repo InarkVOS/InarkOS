@@ -1,9 +1,12 @@
 import os
 from os.path import exists
 import sys
-if sys.argv[1] == '--nologin':
-    from home import *
-    mainwindow()
+try:
+    if sys.argv[1] == '--nologin':
+        from home import *
+        mainwindow()
+except:
+    pass
 elif exists('pswdir') | exists('usrdir'):
     print("Found file redirecting")
     os.system("python login.py")

@@ -1,4 +1,6 @@
 import os
+
+
 def tutr(command):
     arg = command.split('tutr ', 1)[-1]
     if arg.lower().startswith("readdocs "):

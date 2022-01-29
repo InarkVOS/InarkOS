@@ -37,8 +37,19 @@ def check(cmd):
         tutr.tutr(cmd)
     elif cmd.lower().startswith("exec "):
         execute.exec(cmd)
-    else:
-        if cmd.lower()+'.py' in os.listdir("pkgprograms"):
-            os.system("python3 pkgprograms/" + cmd + ".py")
+    elif cmd.lower().startswith("pkgm list"):
+        file = open('programs/pkgnames.txt', 'r').readlines()
+        for i in range(len(file)):
+            print(f"Command {i+1}. " + file[i].replace('\n', '').split(' ')[2])
+    elif cmd.lower().startswith("pkgm run"):
+        if cmd.split(' ')[2] in os.litdir('pkgprograms'):
+            os.system("python3 pkgprograms/" + cmd.split(' ')[2] + '.py')
         else:
-            print("Command not found do help for help")
+            file = open('pkgprograms/pkgnames.txt', 'r').readlines()
+            for i in range(len(file)):
+                if file[i].split(' ')[3] == cmd.split(' ')[2]:
+                    print('yes')
+                else:
+                    print("Command not found")
+    else:
+        print("Command not found run help for list of commands")

@@ -4,10 +4,5 @@ __pycache__/
 programs/variables.py
 programs/__pycache__/
 repo
-<<<<<<< HEAD
-pkgprograms/tstfile
-.vscode/*
-=======
 pkgprograms/
 .vscode/
->>>>>>> 5baafeba608fb35a63bc93775e6a58228519f7bb

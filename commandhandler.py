@@ -9,6 +9,7 @@ from programs import version
 from programs import echo
 from programs import programmanager
 from programs import ls
+import os
 
 
 def check(cmd):
@@ -26,8 +27,6 @@ def check(cmd):
         clear.clearConsole()
     elif cmd.lower().startswith("animate "):
         animate.animate(cmd)
-    elif cmd.lower().startswith("fetchinfo"):
-        fetchinfo.fetchinfo()
     elif cmd.lower().startswith("exit"):
         exit.rl()
     elif cmd.lower().startswith("pkgm downloadrepo"):
@@ -39,4 +38,7 @@ def check(cmd):
     elif cmd.lower().startswith("exec "):
         execute.exec(cmd)
     else:
-        print("Command not found do help for help")
+        if cmd.lower()+'.py' in os.listdir("pkgprograms"):
+            os.system("python3 pkgprograms/" + cmd + ".py")
+        else:
+            print("Command not found do help for help")

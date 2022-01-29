@@ -1,4 +1,7 @@
 
 Experimental not ready package manager.
-Usage: check the source code
-Note: This is not ready for use or even to experiment with it if you got any ideas to make this working please make a pull request!
+Usage: pkgm install [package name]
+
+How to add a package
+Open pkgnames.txt and make a new line and put
+[name of the package] [pastebin url to the package] [command to run the package]

@@ -1,6 +1,7 @@
 from programs import *
 from programs import __all__
 
+
 def check(cmd):
     if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
         ls.listdirectory(cmd[3:])
@@ -17,16 +18,16 @@ def check(cmd):
     elif cmd.lower().startswith("animate "):
         animate.animate(cmd)
     elif cmd.lower().startswith("fetchinfo"):
-        fetchinfo.fetchinfo()     
+        fetchinfo.fetchinfo()
     elif cmd.lower().startswith("exit"):
-        exit.rl()          
+        exit.rl()
     elif cmd.lower().startswith("pkgm downloadrepo"):
         pkgm.downloadrepo()
     elif cmd.lower().startswith("pkgm install "):
-        pkgm.install(cmd)
+        pkgm.install(cmd.split(' ')[2])
     elif cmd.lower().startswith("tutr "):
         tutr.tutr(cmd)
     elif cmd.lower().startswith("exec "):
         execute.exec(cmd)
-    else:            
+    else:
         print("Command not found do help for help")

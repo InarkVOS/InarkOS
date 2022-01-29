@@ -1,3 +1,4 @@
+from home import *
 from genericpath import isfile
 import os
 from os.path import exists
@@ -29,5 +30,4 @@ else:
     else:
         print("Password and username matches")
 # Open home
-from home import *
 mainwindow()

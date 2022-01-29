@@ -2,29 +2,29 @@ from programs import *
 from programs import __all__
 
 def check(cmd):
-    if cmd.startswith("dir") or cmd.startswith("ls"):
+    if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
         ls.listdirectory(cmd[3:])
-    elif cmd.startswith("./"):
+    elif cmd.lower().startswith("./"):
         programmanager.run(cmd[2:])
-    elif cmd.startswith("echo "):
+    elif cmd.lower().startswith("echo "):
         echo.echo(cmd)
-    elif cmd.startswith("help"):
+    elif cmd.lower().startswith("help"):
         help.help()
-    elif cmd.startswith("version"):
+    elif cmd.lower().startswith("version"):
         version.version()
-    elif cmd.startswith("clear") or cmd.startswith("cls"):
+    elif cmd.lower().startswith("clear") or cmd.lower().startswith("cls"):
         clear.clearConsole()
-    elif cmd.startswith("animate "):
+    elif cmd.lower().startswith("animate "):
         animate.animate(cmd)
-    elif cmd.startswith("fetchinfo"):
+    elif cmd.lower().startswith("fetchinfo"):
         fetchinfo.fetchinfo()     
-    elif cmd.startswith("exit"):
+    elif cmd.lower().startswith("exit"):
         exit.rl()          
-    elif cmd.startswith("pkgm downloadrepo"):
+    elif cmd.lower().startswith("pkgm downloadrepo"):
         pkgm.downloadrepo()
-    elif cmd.startswith("pkgm install "):
+    elif cmd.lower().startswith("pkgm install "):
         pkgm.install(cmd)
-    elif cmd.startswith("tutr "):
+    elif cmd.lower().startswith("tutr "):
         tutr.tutr(cmd)
     else:            
         print("Command not found do help for help")

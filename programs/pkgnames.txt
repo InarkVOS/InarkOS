@@ -1,2 +1,4 @@
 helloworld https://pastebin.com/raw/qbB4Nk63 helloworld
 dfetch https://pastebin.com/raw/hbE7Jmgg dfetch
+calc https://pastebin.com/raw/dxFfzRvR gcalc
+gcalc https://pastebin.com/raw/dxFfzRvR gcalc

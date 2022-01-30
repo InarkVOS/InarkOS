@@ -1,6 +1,6 @@
 import os
 import requests
-
+from colorama import Fore, Back
 
 def downloadrepo():
     url = "https://pastebin.com/raw/sh4BtXGB"
@@ -21,3 +21,12 @@ def install(package_name):
                 f = open('pkgprograms/' + name + '.py', 'w').write(txt.text.strip())
     except:
         pass
+def list():
+    file = open("programs/pkgnames.txt", "r").readlines()
+    for i in range(len(file)):
+        installed = "Not Installed"
+        if file[i].replace("\n", "").split(" ")[2]+".py" in os.listdir("pkgprograms"):
+            installed = f"{Fore.GREEN}Installed{Fore.WHITE}"
+        else:
+            installed = f"{Fore.RED}Not Installed{Fore.WHITE}"
+        print(f"{Fore.GREEN}Command {i+1}. {Fore.YELLOW}" + file[i].replace("\n", "").split(" ")[2] + f"{Fore.WHITE} (" + installed + ")")

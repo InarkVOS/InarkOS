@@ -47,7 +47,7 @@ def check(cmd):
         else:
             file = open('programs/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):
-                if file[i].split(' ')[2] == cmd.split(' ')[2]:
+                if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
                     print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])
     else:
         print("Command not found run help for list of commands")

@@ -41,12 +41,6 @@ def check(cmd):
     elif cmd.lower().startswith("pkgm list"):
         pkgm.list()
     elif cmd.lower().startswith("pkgm run"):
-        if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
-            os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
-        else:
-            file = open('programs/pkgnames.txt', 'r').readlines()
-            for i in range(len(file)):
-                if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
-                    print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])
+        pkgm.run(cmd)
     else:
         print("Command not found run help for list of commands")

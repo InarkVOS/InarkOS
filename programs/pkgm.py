@@ -30,3 +30,11 @@ def list():
         else:
             installed = f"{Fore.RED}Not Installed{Fore.WHITE}"
         print(f"{Fore.GREEN}Command {i+1}. {Fore.YELLOW}" + file[i].replace("\n", "").split(" ")[2] + f"{Fore.WHITE} (" + installed + ")")
+def run(cmd):
+    if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
+        os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
+    else:
+        file = open('programs/pkgnames.txt', 'r').readlines()
+        for i in range(len(file)):
+            if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
+                print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])

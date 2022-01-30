@@ -9,6 +9,7 @@ from programs import version
 from programs import echo
 from programs import programmanager
 from programs import ls
+from colorama import Fore, Back
 import os
 
 
@@ -40,7 +41,12 @@ def check(cmd):
     elif cmd.lower().startswith("pkgm list"):
         file = open('programs/pkgnames.txt', 'r').readlines()
         for i in range(len(file)):
-            print(f"Command {i+1}. " + file[i].replace('\n', '').split(' ')[2])
+            installed = 'Not Installed'
+            if file[i].replace('\n', '').split(' ')[2]+'.py' in os.listdir('pkgprograms'):
+                installed = f'{Fore.GREEN}Installed{Fore.WHITE}'
+            else:
+                installed = f'{Fore.RED}Not Installed{Fore.WHITE}'
+            print(f"Command {i+1}. {Fore.YELLOW}" + file[i].replace('\n', '').split(' ')[2] + f'{Fore.WHITE} (' + installed + ')')
     elif cmd.lower().startswith("pkgm run"):
         if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
             os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')

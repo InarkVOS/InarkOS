@@ -1,15 +1,5 @@
 from programs import *
 from programs import __all__
-from programs import pkgm
-from programs import tutr
-from programs import execute
-from programs import animate
-from programs import clear
-from programs import version
-from programs import echo
-from programs import programmanager
-from programs import ls
-from colorama import Fore, Back
 import os
 
 
@@ -30,8 +20,6 @@ def check(cmd):
         animate.animate(cmd)
     elif cmd.lower().startswith("exit"):
         exit.rl()
-    elif cmd.lower().startswith("pkgm downloadrepo"):
-        pkgm.downloadrepo()
     elif cmd.lower().startswith("pkgm install "):
         pkgm.install(cmd.split(' ')[2])
     elif cmd.lower().startswith("tutr "):

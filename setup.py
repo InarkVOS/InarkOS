@@ -4,6 +4,7 @@ import getpass
 import hashlib
 print("Please wait until we install the dependencies...")
 os.system("pip3 install requests psutil colorama termcolor py-cpuinfo curses")
+os.mkdir("pkgprograms")
 print("If you wanna use g* packages do pip install pyqt5")
 print("Done...")
 if exists('pswdir') | exists('usrdir'):

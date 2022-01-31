@@ -4,6 +4,6 @@ __pycache__/
 programs/variables.py
 programs/__pycache__/
 repo
-pkgprograms/
+pkgprograms/*
 .vscode/
 .devtodo

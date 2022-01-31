@@ -3,6 +3,4 @@ Commands:
 "pkgm install [package name]"
 "pkgm list"
 "pkgm run [package name]"
-How to add a package
-Open pkgnames.txt and make a new line and put
-[name of the package] [pastebin url to the package] [command to run the package]
+For advanced guides(ex: Adding packages to the repo do "tutr read advanced")

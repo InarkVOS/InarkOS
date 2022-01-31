@@ -2,7 +2,7 @@ import os
 from os.path import exists
 import sys
 
-if '--bcKvaMlxhBzeBVx' in sys.argv:
+if '--bcomp' in sys.argv:
     try:
         if '--nologin' in sys.argv:
             from home import *

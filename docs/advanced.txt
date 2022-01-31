@@ -1,0 +1,16 @@
+
+Advanced guide(s):
+    -- Custom Applications --
+    If you made a custom application here are the guide to add it!
+    You need: a program that is not in the repo (programs/pkgnames.txt),a pastebin link with the program,a github account. 
+    
+    Fork the repository. 
+
+    How to name your package guide:
+        If package is graphical use "g"thepackagenameishere
+        Else you can name it how you want.
+
+    Make sure it works by adding a new line to the file with this format:
+    [name of the package] [RAW pastebin url to the package] [command to run the package]
+    After you added it test if it is working!
+    If it works please upload the new file with the pull request function

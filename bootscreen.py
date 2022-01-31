@@ -4,6 +4,7 @@ from colorama import init
 import time
 import os
 init()
+# Please not this is just fanciness. You can always skip bootscreen by --bcomp
 targets = [
     'Reached target Encrypting Volumes.',
     'Listening on Process Core Dump Socket.',
@@ -35,7 +36,10 @@ for i in range(len(targets)):
         print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + targets[i].replace('# ', ''))
         time.sleep(0.05)
 time.sleep(0.2)
-os.system('cls')
+command = 'clear'
+if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+    command = 'cls'
+os.system(command)
 time.sleep(1)
 
 win = initscr()
@@ -61,12 +65,12 @@ win.addstr(y+yoffset-1-offset,x-27,"██████╔╝██║  ██║
 win.addstr(y+yoffset-0-offset,x-27,"╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
 
 for i in range(scl+1):
-    win.addstr(y+2,x-int(scl/2)-2,"["+"#"*i+"-"*(scl-i)+']')
-    win.addstr(y+4,x-int(scl/2)-2+6,"Booting...")
+    win.addstr(y+8,x-int(scl/2)-2,"["+"#"*i+"-"*(scl-i)+']')
+    win.addstr(y+10,x-int(scl/2)-2+6,"Booting...")
     win.refresh()
     time.sleep(0.1)
 
 time.sleep(0.5)
 win.attroff(color_pair(1))
 endwin()
-os.system("python init.py --bcKvaMlxhBzeBVx")
+os.system("python init.py --bcomp")

@@ -1,7 +1,14 @@
 import os
 import requests
-from colorama import Fore, Back
+from colorama import Fore, Style
 
+def remove(package_name):
+    actualname = package_name.split('pkgm uninstall ')[1]
+    try:
+        os.remove("pkgprograms/" + actualname + ".py")
+        print(Fore.GREEN + "[INFO]" + Style.reset + "Successfully uninstalled" + actualname")
+    except:
+        pass
 def install(package_name):
     try:
         print("Downloading...")

@@ -30,5 +30,7 @@ def check(cmd):
         pkgm.list()
     elif cmd.lower().startswith("pkgm run"):
         pkgm.run(cmd)
+    elif cmd.lower().startswith("pkgm uninstall"):
+        pkgm.uninstall(cmd)
     else:
         print("Command not found run help for list of commands")

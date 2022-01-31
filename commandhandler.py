@@ -1,17 +1,7 @@
 from programs import *
 from programs import __all__
-from programs import pkgm
-from programs import tutr
-from programs import execute
-from programs import animate
-from programs import clear
-from programs import version
-from programs import echo
-from programs import programmanager
-from programs import ls
-from colorama import Fore, Back
 import os
-
+import getpass
 
 def check(cmd):
     if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
@@ -30,8 +20,6 @@ def check(cmd):
         animate.animate(cmd)
     elif cmd.lower().startswith("exit"):
         exit.rl()
-    elif cmd.lower().startswith("pkgm downloadrepo"):
-        pkgm.downloadrepo()
     elif cmd.lower().startswith("pkgm install "):
         pkgm.install(cmd.split(' ')[2])
     elif cmd.lower().startswith("tutr "):
@@ -41,12 +29,10 @@ def check(cmd):
     elif cmd.lower().startswith("pkgm list"):
         pkgm.list()
     elif cmd.lower().startswith("pkgm run"):
-        if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
-            os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
-        else:
-            file = open('programs/pkgnames.txt', 'r').readlines()
-            for i in range(len(file)):
-                if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
-                    print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])
+        pkgm.run(cmd)
+    elif cmd.lower().startswith("pkgm uninstall"):
+        pkgm.uninstall(cmd)
+    elif cmd.lower().startswith("hostname"):
+        print(open('usrdir').read())
     else:
         print("Command not found run help for list of commands")

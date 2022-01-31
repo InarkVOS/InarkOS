@@ -6,21 +6,23 @@ def remove(package_name):
     print("Not working dont even try")
 
 def writeURL(fname, url):
-    f = open(fname, 'w')
+    open(fname + '.py', 'w').write(requests.get(url).text)
 
-def install(package_name):
-    try:
-        print("Downloading...")
+
+
+def install(cmd):
+    done = False
+    for i in range(len(cmd.split(' ')[2:])):
         f = open('programs/pkgnames.txt', 'r').readlines()
-        for i in range(len(f)):
-            f[i] = f[i].replace('\n', '')
-            thing = f[i].split(' ')[0]
-            if package_name == thing:
-                name = f[i].split(' ')[2]
-                txt = requests.get(f[i].split(' ')[1])
-                f = open('pkgprograms/' + name + '.py', 'w').write(txt.text.strip())
-    except:
-        pass
+        for j in range(len(f)):
+            if f[j].split(' ')[0] == cmd.split(' ')[2+i]:
+                writeURL('pkgprograms/' + cmd.split(' ')[2+i], f[j].split(' ')[1])
+                done = True
+    if done == False:
+        print('Package not found.')
+
+
+
 def list():
     file = open("programs/pkgnames.txt", "r").readlines()
     for i in range(len(file)):
@@ -40,9 +42,15 @@ def run(cmd):
                 print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
 
 def uninstall(cmd):
-   if cmd.split(' ')[2] + '.py' in os.listdir('pkgprograms'):
-       print("Uninstalling...")
-       os.system('del pkgprograms\\' + cmd.split(' ')[2] + '.py')
-   else:
-       print("Package " + cmd.split(' ')[2] + " not installed")
-               print('Package not found but can be installed with: pkgm install '+file[i].split(' ')[0])
+    for i in range(len(cmd.split(' ')[2:])):
+        if cmd.split(' ')[2+i]+'.py' in os.listdir('pkgprograms'):
+            os.system('del pkgprograms\\' + cmd.split(' ')[2+i] + '.py')
+        else:
+            f = open('programs/pkgnames.txt', 'r').readlines()
+            for j in range(len(f)):
+                if cmd.split(' ')[2+i] == f[j].split(' ')[0]:
+                    print('Package ' + cmd.split(' ')[2+i] + f' not found but can be installed with {Fore.CYAN}pkgm install {Fore.YELLOW}' + cmd.split(' ')[2+i] + f'{Fore.WHITE}')
+                    break
+                else:
+                    print('Package not found.')
+                    break

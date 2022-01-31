@@ -21,7 +21,7 @@ def check(cmd):
     elif cmd.lower().startswith("exit"):
         exit.rl()
     elif cmd.lower().startswith("pkgm install "):
-        pkgm.install(cmd.split(' ')[2])
+        pkgm.install(cmd)
     elif cmd.lower().startswith("tutr "):
         tutr.tutr(cmd)
     elif cmd.lower().startswith("exec "):

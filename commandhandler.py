@@ -1,7 +1,7 @@
 from programs import *
 from programs import __all__
 import os
-
+import getpass
 
 def check(cmd):
     if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
@@ -32,5 +32,7 @@ def check(cmd):
         pkgm.run(cmd)
     elif cmd.lower().startswith("pkgm uninstall"):
         pkgm.uninstall(cmd)
+    elif cmd.lower().startswith("hostname"):
+        print(open('usrdir').read())
     else:
         print("Command not found run help for list of commands")

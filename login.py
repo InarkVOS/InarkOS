@@ -7,7 +7,7 @@ import hashlib
 import time
 
 if exists('pswdir') | exists('usrdir'):
-    print("Found all files booting")
+    print("Found all files")
 else:
     print("We detected an invalid file (storage) please run init.py again")
     exit(0)

@@ -35,10 +35,10 @@ def run(cmd):
             if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
                 print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
 
-def uninstall(cmd):
-    if cmd.split(' ')[2] + '.py' in os.listdir('pkgprograms'):
-        print("Uninstalling...")
-        os.system('del pkgprograms\\' + cmd.split(' ')[2] + '.py')
-    else:
-        print("Package " + cmd.split(' ')[2] + " not installed")
-                print('Command not found but can be installed with: pkgm install ' + file[i].split(' ')[0])
+# def uninstall(cmd):
+#    if cmd.split(' ')[2] + '.py' in os.listdir('pkgprograms'):
+#        print("Uninstalling...")
+#        os.system('del pkgprograms\\' + cmd.split(' ')[2] + '.py')
+#    else:
+#        print("Package " + cmd.split(' ')[2] + " not installed")
+#                print('Package not found but can be installed with: pkgm install '+file[i].split(' ')[0])

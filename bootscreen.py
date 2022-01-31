@@ -1,8 +1,9 @@
 from curses import *
 from colorama import Fore
+from colorama import init
 import time
 import os
-
+init()
 targets = [
     'Reached target Encrypting Volumes.',
     'Listening on Process Core Dump Socket.',

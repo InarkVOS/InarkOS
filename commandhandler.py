@@ -32,10 +32,7 @@ def check(cmd):
         pkgm.run(cmd)
     elif cmd.lower().startswith("pkgm uninstall"):
         pkgm.uninstall(cmd)
-<<<<<<< HEAD
     elif cmd.lower().startswith("hostname"):
         print(open('usrdir').read())
-=======
->>>>>>> refs/remotes/origin/main
     else:
         print("Command not found run help for list of commands")

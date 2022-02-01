@@ -14,5 +14,3 @@ def mkusr():
         pass
     pswdir = open(f'MainDrive/Users/{username}/pswdir', 'w').write(hash)
     usrdir = open(f'MainDrive/Users/{username}/usrdir', 'w').write(username)
-
-mkusr()

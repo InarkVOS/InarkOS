@@ -9,6 +9,7 @@ import time
 if os.listdir('MainDrive/Users') == []:
     print('No users have been created please run init.py')
     exit()
+else:
     username = input("Username: ")
     password = getpass.getpass("Password (No echo): ")
     encp = password.encode()
@@ -27,5 +28,4 @@ if os.listdir('MainDrive/Users') == []:
             exit(0)
         else:
             print("Password and username matches")
-# Open home
-mainwindow()
+            mainwindow()

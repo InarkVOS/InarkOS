@@ -85,4 +85,8 @@ for i in range(scl+1):
 time.sleep(0.5)
 win.attroff(color_pair(1))
 endwin()
+if os.name == 'nt':
+    os.system('cls')
+else:
+    os.system('clear')
 os.system("python init.py --bcomp")

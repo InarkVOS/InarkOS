@@ -9,11 +9,11 @@ if '--bcomp' in sys.argv:
             mainwindow()
     except:
         pass
-    if exists('pswdir') | exists('usrdir'):
+    if os.listdir('MainDrive/Users') != []:
         print("Found file redirecting")
         os.system("python login.py")
     else:
-        print("Not found file redirecting")
+        print("File not found redirecting")
         os.system("python setup.py")
 else:
     os.system("python bootscreen.py")

@@ -6,8 +6,6 @@ import getpass
 def check(cmd):
     if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
         ls.listdirectory(cmd[3:])
-    elif cmd.lower().startswith("./"):
-        programmanager.run(cmd[2:])
     elif cmd.lower().startswith("echo "):
         echo.echo(cmd)
     elif cmd.lower().startswith("help"):
@@ -28,10 +26,12 @@ def check(cmd):
         execute.exec(cmd)
     elif cmd.lower().startswith("pkgm list"):
         pkgm.list()
-    elif cmd.lower().startswith("pkgm run"):
+    elif cmd.lower().startswith("pkgm run") or cmd.lower().startswith("./"):
         pkgm.run(cmd)
     elif cmd.lower().startswith("pkgm uninstall"):
         pkgm.uninstall(cmd)
+    elif cmd.lower().startswith("mkusr") or cmd.lower().startswith("makeuser"):
+        usr.mkusr()
     elif cmd.lower().startswith("hostname"):
         print(open('usrdir').read())
     else:

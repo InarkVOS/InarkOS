@@ -33,13 +33,23 @@ def list():
             installed = f"{Fore.RED}Not Installed{Fore.WHITE}"
         print(f"{Fore.GREEN}Command {i+1}. {Fore.YELLOW}" + file[i].replace("\n", "").split(" ")[2] + f"{Fore.WHITE} (" + installed + ")")
 def run(cmd):
-    if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
-        os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
+    if cmd[0] == '.':
+        cmd = cmd[2:]
+        if cmd+'.py' in os.listdir('pkgprograms'):
+            os.system("python pkgprograms/" + cmd + '.py')
+        else:
+            file = open('programs/pkgnames.txt', 'r').readlines()
+            for i in range(len(file)):
+                if file[i].replace('\n', '').split(' ')[2] == cmd:
+                    print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
     else:
-        file = open('programs/pkgnames.txt', 'r').readlines()
-        for i in range(len(file)):
-            if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
-                print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
+        if cmd.split(' ')[2]+'.py' in os.listdir('pkgprograms'):
+            os.system("python pkgprograms/" + cmd.split(' ')[2] + '.py')
+        else:
+            file = open('programs/pkgnames.txt', 'r').readlines()
+            for i in range(len(file)):
+                if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
+                    print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
 
 def uninstall(cmd):
     for i in range(len(cmd.split(' ')[2:])):

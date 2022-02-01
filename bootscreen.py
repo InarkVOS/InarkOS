@@ -6,41 +6,53 @@ import os
 init()
 # Please not this is just fanciness. You can always skip bootscreen by --bcomp
 targets = [
-    'Reached target Encrypting Volumes.',
-    'Listening on Process Core Dump Socket.',
-    'Reached target Remote File Systems.',
-    'Started Create list of required static device nodes.',
-    'Started Apply Kernel Variables.',
-    'Mounted Debug File System.',
-    'Mounted Configuration File System.',
-    'Mount POSIX Message Queue File System.',
-    'Started Journal service.',
-    'Started Remount Root and Kernel File Systems.',
+    'O Create System Users.',
+    'O Entropy Daemon based on the HAVEGE algorithm.',
+    '# Starting Rule-based Manager for Device Events and Files.',
+    'O Reached target Encrypting Volumes.',
+    'O Listening on Process Core Dump Socket.',
+    'O Reached target Remote File Systems.',
+    'O Started Create list of required static device nodes.',
+    'O Waiting for udev To Complete Device Initialization.',
+    'O Monitoring of LVM2 mirrors, etc. using dmeventd or progress polling.',
+    'O Started Apply Kernel Variables.',
+    'O Mounted Debug File System.',
+    'O Mounted Configuration File System.',
+    'O Mount POSIX Message Queue File System.',
+    'O Started Journal service.',
+    'O Started Remount Root and Kernel File Systems.',
     '# Starting udev Coldplug all Devices...',
     '# Starting Flush Journal to Persistent Storage...',
     '# Starting Create Static Device Nodes in /dev...',
     '# Starting Load/Save Random Seed...',
-    'Started Load/Save Random Seed.',
-    'Started udev Coldplug all Devices.',
-    'Started Create Static Device Nodes in /dev.',
+    'O Started Load/Save Random Seed.',
+    'O Started udev Coldplug all Devices.',
+    'O Started Create Static Device Nodes in /dev.',
     '# Starting udev Kernel Device Manager...',
-    'Reached target Local File Systems (Pre).',
-    'Started Flush Journal to Persistent Storage.',
-    'Started udev Kernel Device Manager.',
-    'Found device Samsung_SSD_850_PRO_512GB SYSTEM.',
+    'O Reached target Local File Systems (Pre).',
+    'O Started Flush Journal to Persistent Storage.',
+    'O Started udev Kernel Device Manager.',
+    'O Found device Samsung_SSD_850_PRO_512GB SYSTEM.',
     '# Mounting /boot...',
 ]
 
-for i in range(len(targets)):
-    if targets[i].split(' ')[0] != '#':
-        print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + targets[i].replace('# ', ''))
-        time.sleep(0.05)
-time.sleep(0.2)
+def fancyboot():
+    for i in range(len(targets)):
+        if targets[i].split(' ')[0] == 'O':
+            print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + targets[i][2:])
+            time.sleep(0.05)
+        elif targets[i].split(' ')[0] == '#':
+            print(' '*9 + targets[i][2:])
+            time.sleep(0.05)
+        elif targets[i].split(' ')[0] == 'F':
+            print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + targets[i][2:])
+    time.sleep(0.2)
 command = 'clear'
 if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
     command = 'cls'
 os.system(command)
-time.sleep(1)
+
+fancyboot()
 
 win = initscr()
 start_color()
@@ -54,7 +66,7 @@ offset = 3
 yoffset = y-15
 
 
-init_pair(1, 6, COLOR_BLACK)
+init_pair(1, COLOR_CYAN, COLOR_BLACK)
 
 win.attron(color_pair(1))
 win.addstr(y+yoffset-5-offset,x-27,"██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")

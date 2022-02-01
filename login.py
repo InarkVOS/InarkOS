@@ -6,28 +6,26 @@ import getpass
 import hashlib
 import time
 
-if exists('pswdir') | exists('usrdir'):
-    print("Found all files")
-else:
-    print("We detected an invalid file (storage) please run init.py again")
-    exit(0)
-username = input("Username: ")
-password = getpass.getpass("Password (No echo): ")
-encp = password.encode()
-d = hashlib.sha256(encp)
-hash = d.hexdigest()
-pswdir = open('pswdir', 'r')
-usrdir = open('usrdir', 'r')
-readusr = usrdir.read()
-readpsw = pswdir.read()
-if readusr != username:
-    print("Invalid username")
-    exit(0)
-else:
-    if readpsw != hash:
-        print("Invalid password")
+if os.listdir('MainDrive/Users') == []:
+    print('No users have been created please run init.py')
+    exit()
+    username = input("Username: ")
+    password = getpass.getpass("Password (No echo): ")
+    encp = password.encode()
+    d = hashlib.sha256(encp)
+    hash = d.hexdigest()
+    pswdir = open(f'MainDrive/Users/{username}/pswdir', 'r')
+    usrdir = open(f'MainDrive/Users/{username}/usrdir', 'r')
+    readusr = usrdir.read()
+    readpsw = pswdir.read()
+    if readusr != username:
+        print("Invalid username")
         exit(0)
     else:
-        print("Password and username matches")
+        if readpsw != hash:
+            print("Invalid password")
+            exit(0)
+        else:
+            print("Password and username matches")
 # Open home
 mainwindow()

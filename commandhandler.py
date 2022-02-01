@@ -16,7 +16,7 @@ def check(cmd):
         clear.clearConsole()
     elif cmd.lower().startswith("animate "):
         animate.animate(cmd)
-    elif cmd.lower().startswith("exit"):
+    elif cmd.lower().startswith("exit") or cmd.lower().startswith("shutdown"):
         exit.rl()
     elif cmd.lower().startswith("pkgm install "):
         pkgm.install(cmd)
@@ -34,5 +34,8 @@ def check(cmd):
         usr.mkusr()
     elif cmd.lower().startswith("hostname"):
         print(open('usrdir').read())
+    elif cmd.lower().startswith("pkgm-gui run"):
+        command = 'pkgm install ' + guipkgm.run()
+        pkgm.install(command)
     else:
         print("Command not found run help for list of commands")

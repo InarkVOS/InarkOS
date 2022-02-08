@@ -16,6 +16,7 @@ else:
     encp = password.encode()
     d = hashlib.sha256(encp)
     hash = d.hexdigest()
+    os.mkdir('pkgprograms')
     os.mkdir('MainDrive/')
     os.mkdir('MainDrive/Users/')
     os.mkdir(f'MainDrive/Users/{username}')

@@ -1,5 +1,5 @@
-from programs import *
-from programs import __all__
+from bin import *
+from bin import __all__
 import os
 import getpass
 

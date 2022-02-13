@@ -3,7 +3,7 @@ import os
 
 selidx = 0
 menu = []
-f = open('programs/pkgnames.txt', 'r').readlines()
+f = open('bin/pkgnames.txt', 'r').readlines()
 for i in range(len(f)):
     menu.append(f[i].split(' ')[0])
 
@@ -15,7 +15,7 @@ def drawMenu(win, menu):
             win.attron(c.A_REVERSE)
         else:
             win.attroff(c.A_REVERSE)
-        if menu[i]+'.py' in os.listdir('pkgprograms'):
+        if menu[i]+'.py' in os.listdir('ubin'):
             win.addstr(i+1,0,menu[i])
             win.addstr(i+1,len(menu[i])," "*(20-len(menu[i]))+"(Installed)",c.color_pair(1))
         else:

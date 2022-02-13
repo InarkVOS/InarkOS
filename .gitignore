@@ -1,10 +1,10 @@
 pswdir
 usrdir
 __pycache__/
-programs/variables.py
-programs/__pycache__/
+bin/variables.py
+bin/__pycache__/
 repo
-pkgprograms/*
+ubin/*
 .vscode/
 .devtodo
 venv/*

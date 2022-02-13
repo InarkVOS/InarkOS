@@ -92,4 +92,4 @@ if os.name == 'nt':
     os.system('cls')
 else:
     os.system('clear')
-os.system("python init.py --bcomp")
+os.system("python3 init.py --bcomp")

@@ -1,6 +1,6 @@
 import os
 import requests
-from colorama import Fore, Style
+from colorama import Fore
 
 def remove(package_name):
     print("Not working dont even try")

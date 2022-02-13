@@ -11,9 +11,9 @@ if '--bcomp' in sys.argv:
         pass
     if os.path.exists('MainDrive/Users/'):
         print("Found file redirecting")
-        os.system("python login.py")
+        os.system("python3 login.py")
     else:
         print("File not found redirecting")
-        os.system("python setup.py")
+        os.system("python3 setup.py")
 else:
-    os.system("python bootscreen.py")
+    os.system("python3 bootscreen.py")

@@ -1,5 +1,4 @@
 import os
-from os.path import exists
 import getpass
 import hashlib
 print("Please wait until we install the dependencies...")
@@ -9,7 +8,7 @@ if os.name == 'nt':
 print("If you wanna use g* packages do pip install pyqt5")
 print("Done...")
 if os.path.exists('MainDrive/Users'):
-    pass
+    os.system('python3 bootscreen.py')
 else:
     username = input("Username: ")
     password = getpass.getpass("Password (No echo): ")

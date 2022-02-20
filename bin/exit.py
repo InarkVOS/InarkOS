@@ -1,3 +1,6 @@
+from utils import system
+
 def rl():
     print("Exiting...")
-    exit(1)
+    system('cls')
+    exit()

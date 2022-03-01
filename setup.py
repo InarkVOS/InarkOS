@@ -2,8 +2,8 @@ import os
 import getpass
 import hashlib
 print("Please wait until we install the dependencies...")
-os.system("pip3 install requests psutil colorama termcolor py-cpuinfo pyqt5")
-os.system("python3 -m pip install requests psutil colorama termcolor py-cpuinfo pyqt5")
+os.system("pip3 install requests psutil colorama termcolor py-cpuinfo rich ")
+os.system("python3 -m pip install requests psutil colorama termcolor py-cpuinfo rich")
 if os.name == 'nt':
     os.system('pip install windows-curses')
 print("If you wanna use g* packages do pip install pyqt5")

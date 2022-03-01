@@ -1,7 +1,6 @@
 import os
 import requests
-from colorama import Fore
-
+from rich import print
 def writeURL(fname, url):
     open(fname + '.py', 'w').write(requests.get(url).text)
 
@@ -25,10 +24,10 @@ def list():
     for i in range(len(file)):
         installed = "Not Installed"
         if file[i].replace("\n", "").split(" ")[2]+".py" in os.listdir("ubin"):
-            installed = f"{Fore.GREEN}Installed{Fore.WHITE}"
+            installed = f"[green]Installed[/green]"
         else:
-            installed = f"{Fore.RED}Not Installed{Fore.WHITE}"
-        print(f"{Fore.GREEN}Command {i+1}. {Fore.YELLOW}" + file[i].replace("\n", "").split(" ")[2] + f"{Fore.WHITE} (" + installed + ")")
+            installed = f"[red]Not Installed[/red]"
+        print(f"[green]Command {i+1}. [/green]" + file[i].replace("\n", "").split(" ")[2] + f" (" + installed + ")")
 def run(cmd):
     if cmd[0] == '.':
         cmd = cmd[2:]
@@ -38,7 +37,7 @@ def run(cmd):
             file = open('bin/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):
                 if file[i].replace('\n', '').split(' ')[2] == cmd:
-                    print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
+                    print(f'Command not found but can be installed with: [cyan]pkgm install[/cyan][yellow]' + file[i].split(' ')[0] + f'[/yellow]')
     else:
         if cmd.split(' ')[2]+'.py' in os.listdir('ubin'):
             os.system("python ubin/" + cmd.split(' ')[2] + '.py')
@@ -46,17 +45,17 @@ def run(cmd):
             file = open('bin/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):
                 if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
-                    print(f'Command not found but can be installed with: {Fore.CYAN}pkgm install {Fore.YELLOW}' + file[i].split(' ')[0] + f'{Fore.WHITE}')
+                    print(f'Command not found but can be installed with: [cyan]pkgm install [/cyan][yellow]' + file[i].split(' ')[0] + f'[/yellow]')
 
 def uninstall(cmd):
     for i in range(len(cmd.split(' ')[2:])):
         if cmd.split(' ')[2+i]+'.py' in os.listdir('ubin'):
-            os.system('del ubin\\' + cmd.split(' ')[2+i] + '.py')
+            os.remove('ubin/' + cmd.split(' ')[2+i] + '.py')
         else:
             f = open('bin/pkgnames.txt', 'r').readlines()
             for j in range(len(f)):
                 if cmd.split(' ')[2+i] == f[j].split(' ')[0]:
-                    print('Package ' + cmd.split(' ')[2+i] + f' not found but can be installed with {Fore.CYAN}pkgm install {Fore.YELLOW}' + cmd.split(' ')[2+i] + f'{Fore.WHITE}')
+                    print('Package ' + cmd.split(' ')[2+i] + f' not found but can be installed with [cyan]pkgm install [/cyan][yellow]' + cmd.split(' ')[2+i] + f'[/yellow]')
                     break
                 else:
                     print('Package not found.')

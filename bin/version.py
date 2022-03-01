@@ -1,6 +1,4 @@
-from colorama import init, Fore
-
-init()
+from rich import print
 
 def version():
-    print(Fore.CYAN + "Version: " + Fore.LIGHTRED_EX +"Beta 0.4 " + Fore.WHITE + "production version")
+    print("[green]Release[/green] [bold]1.0[/bold] [green]production[/green]")

@@ -2,19 +2,21 @@ from bin import *
 from bin import __all__
 
 def check(cmd):
-    if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
+    if cmd.lower() == "":
+        pass
+    elif cmd.lower() == "dir" or cmd.lower() == "ls":
         ls.listdirectory(cmd[3:])
     elif cmd.lower().startswith("echo "):
         echo.echo(cmd)
-    elif cmd.lower().startswith("help"):
+    elif cmd.lower() == "help":
         help.help()
-    elif cmd.lower().startswith("version"):
+    elif cmd.lower() == "version":
         version.version()
-    elif cmd.lower().startswith("clear") or cmd.lower().startswith("cls"):
+    elif cmd.lower() == "clear" or cmd.lower() == "cls":
         clear.clearConsole()
     elif cmd.lower().startswith("animate "):
         animate.animate(cmd)
-    elif cmd.lower().startswith("exit") or cmd.lower().startswith("shutdown"):
+    elif cmd.lower() == "exit" or cmd.lower() == "shutdown":
         exit.rl()
     elif cmd.lower().startswith("pkgm install "):
         pkgm.install(cmd)
@@ -22,17 +24,17 @@ def check(cmd):
         tutr.tutr(cmd)
     elif cmd.lower().startswith("exec "):
         execute.exec(cmd)
-    elif cmd.lower().startswith("pkgm list"):
+    elif cmd.lower() == "pkgm list":
         pkgm.list()
     elif cmd.lower().startswith("pkgm run") or cmd.lower().startswith("./"):
         pkgm.run(cmd)
     elif cmd.lower().startswith("pkgm uninstall"):
         pkgm.uninstall(cmd)
-    elif cmd.lower().startswith("mkusr") or cmd.lower().startswith("makeuser"):
+    elif cmd.lower() == "mkusr" or cmd.lower() == "makeuser":
         usr.mkusr()
-    elif cmd.lower().startswith("hostname"):
+    elif cmd.lower() == "hostname":
         print('WORK IN PROGRESS!!!')
-    elif cmd.lower().startswith("pkgm-gui run"):
+    elif cmd.lower() == "pkgm-gui run":
         command = 'pkgm install ' + guipkgm.run()
         pkgm.install(command)
     else:

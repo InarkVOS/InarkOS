@@ -1,4 +1,3 @@
 helloworld https://pastebin.com/raw/qbB4Nk63 helloworld
 dfetch https://pastebin.com/raw/hbE7Jmgg dfetch
 gcalc https://pastebin.com/raw/dxFfzRvR gcalc
-clock https://pastebin.com/raw/kjGbASf9 clock

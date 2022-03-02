@@ -1,7 +1,5 @@
 from bin import *
 from bin import __all__
-import os
-import getpass
 
 def check(cmd):
     if cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
@@ -33,7 +31,7 @@ def check(cmd):
     elif cmd.lower().startswith("mkusr") or cmd.lower().startswith("makeuser"):
         usr.mkusr()
     elif cmd.lower().startswith("hostname"):
-        print(open('usrdir').read())
+        print('WORK IN PROGRESS!!!')
     elif cmd.lower().startswith("pkgm-gui run"):
         command = 'pkgm install ' + guipkgm.run()
         pkgm.install(command)

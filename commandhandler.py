@@ -4,6 +4,8 @@ from bin import __all__
 def check(cmd):
     if cmd.lower() == "":
         pass
+    elif cmd.lower() == "clock":
+        clock.run()
     elif cmd.lower() == "dir" or cmd.lower() == "ls":
         ls.listdirectory(cmd[3:])
     elif cmd.lower().startswith("echo "):

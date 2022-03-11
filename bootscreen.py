@@ -3,6 +3,8 @@ from colorama import Fore
 from colorama import init
 import time
 import os
+import random
+
 init()
 # Please not this is just fanciness. You can always skip bootscreen by --bcomp
 targets = [
@@ -37,20 +39,21 @@ targets = [
 ]
 
 def fancyboot():
-    for i in range(len(targets)):
-        if targets[i].split(' ')[0] == 'O':
-            print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + targets[i][2:])
-            time.sleep(0.05)
-        elif targets[i].split(' ')[0] == '#':
+    for target in targets:
+        _ = target.split(' ')[0]
+        if _ == 'O':
+            print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + target[2:])
+        elif _ == '#':
             print(' '*9 + targets[i][2:])
-            time.sleep(0.05)
-        elif targets[i].split(' ')[0] == 'F':
-            print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + targets[i][2:])
+        elif _ == 'F':
+            print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + target[2:])
+        time.sleep(random.uniform(0.05, 0.2))
     time.sleep(0.2)
-command = 'clear'
+    
+clear_command = 'clear'
 if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
     command = 'cls'
-os.system(command)
+os.system(clear_command)
 
 fancyboot()
 
@@ -59,27 +62,27 @@ try:
     start_color()
     curs_set(0)
 
-    y,x=win.getmaxyx()
-    y = int(y/2)
-    x = int(x/2)
+    y, x = win.getmaxyx()
+    y = int(y / 2)
+    x = int(x / 2)
     scl = 20
     offset = 3
-    yoffset = y-15
+    yoffset = y - 15
 
 
     init_pair(1, COLOR_CYAN, COLOR_BLACK)
 
     win.attron(color_pair(1))
-    win.addstr(y+yoffset-5-offset,x-27,"██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
-    win.addstr(y+yoffset-4-offset,x-27,"██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
-    win.addstr(y+yoffset-3-offset,x-27,"██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
-    win.addstr(y+yoffset-2-offset,x-27,"██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
-    win.addstr(y+yoffset-1-offset,x-27,"██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
-    win.addstr(y+yoffset-0-offset,x-27,"╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
+    win.addstr(y + yoffset - 5 - offset, x - 27, "██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
+    win.addstr(y + yoffset - 4 - offset, x - 27, "██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
+    win.addstr(y + yoffset - 3 - offset, x - 27, "██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
+    win.addstr(y + yoffset - 2 - offset, x - 27, "██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
+    win.addstr(y + yoffset - 1 - offset, x - 27, "██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
+    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
 
-    for i in range(scl+1):
-        win.addstr(y+8,x-int(scl/2)-2,"["+"#"*i+"-"*(scl-i)+']')
-        win.addstr(y+10,x-int(scl/2)-2+6,"Booting...")
+    for i in range(scl + 1):
+        win.addstr(y + 8, x - round(scl / 2) - 2, "[" + "#" * i + "-" * (scl - i) + ']')
+        win.addstr(y + 10, x - round(scl / 2) - 2 + 6, "Booting...")
         win.refresh()
         time.sleep(0.1)
 
@@ -88,8 +91,7 @@ try:
     endwin()
 except:
     pass
-if os.name == 'nt':
-    os.system('cls')
-else:
-    os.system('clear')
+
+os.system(clear_command)
+
 os.system("python3 init.py --bcomp")

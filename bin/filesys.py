@@ -45,6 +45,7 @@ class DisplayablePath (object ):
 		return ''.join (reversed (O0O00000OO0OOO0O0 ))
 
 def tree(dir, usr):
-	ls = DisplayablePath.make_tree(Path(f'../MainDrive/Users/survi/{dir}'.replace('\\\\', '').replace('..', '.')))
-	for l in ls:
-		print(l.displayable())
+	if usr != 'NOUSR':
+		ls = DisplayablePath.make_tree(Path(f'../MainDrive/Users/survi/{dir}'.replace('\\\\', '').replace('..', '.')))
+		for l in ls:
+			print(l.displayable())

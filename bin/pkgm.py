@@ -1,8 +1,22 @@
 import os
 import requests
-from rich import print
+from rich import print as rprint
+import numpy as np
+from tqdm.auto import tqdm
+
 def writeURL(fname, url):
-    open(fname + '.py', 'w').write(requests.get(url).text)
+
+    chunk_size = 1024
+
+    r = requests.get(url, stream=True)
+
+    total_size = int(r.headers.get('content-length', 0))
+
+    with open(fname, 'wb') as f:
+        for data in tqdm(iterable=r.iter_content(chunk_size=chunk_size), total=total_size/chunk_size, unit='KB'):
+            f.write(data)
+
+    print('Download Complete')
 
 
 
@@ -12,7 +26,7 @@ def install(cmd):
         f = open('bin/pkgnames.txt', 'r').readlines()
         for j in range(len(f)):
             if f[j].split(' ')[0] == cmd.split(' ')[2+i]:
-                writeURL('ubin/' + cmd.split(' ')[2+i], f[j].split(' ')[1])
+                writeURL('ubin/' + cmd.split(' ')[2+i] + '.py', f[j].split(' ')[1])
                 done = True
     if done == False:
         print('Package not found.')
@@ -27,7 +41,7 @@ def list():
             installed = f"[green]Installed[/green]"
         else:
             installed = f"[red]Not Installed[/red]"
-        print(f"[green]Command {i+1}. [/green]" + file[i].replace("\n", "").split(" ")[2] + f" (" + installed + ")")
+        rprint(f"[green]Command {i+1}. [/green]" + file[i].replace("\n", "").split(" ")[2] + f" (" + installed + ")")
 
 def run(cmd):
     if cmd[0:2] == './':

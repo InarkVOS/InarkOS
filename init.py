@@ -6,7 +6,7 @@ if '--bcomp' in sys.argv:
     try:
         if '--nologin' in sys.argv:
             import home
-            home.mainwindow()
+            home.mainwindow('NOUSR')
         else:
             if os.path.exists('MainDrive/Users/'):
                 print("Found file redirecting")

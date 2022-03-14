@@ -1,14 +1,16 @@
 from bin import *
 from bin import __all__
 
-def check(cmd):
+def check(cmd, usr):
     if cmd.lower() == "":
         pass
+    elif cmd.lower().startswith('tree'):
+        filesys.tree(cmd.split(' ')[1], usr)
     elif cmd.lower() == "clock":
         clock.run()
     elif cmd.lower() == "dir" or cmd.lower() == "ls":
         ls.listdirectory(cmd[3:])
-    elif cmd.lower().startswith("echo "):
+    elif cmd.lower().startswith("echo"):
         echo.echo(cmd)
     elif cmd.lower() == "help":
         help.help()
@@ -16,15 +18,15 @@ def check(cmd):
         version.version()
     elif cmd.lower() == "clear" or cmd.lower() == "cls":
         clear.clearConsole()
-    elif cmd.lower().startswith("animate "):
+    elif cmd.lower().startswith("animate"):
         animate.animate(cmd)
     elif cmd.lower() == "exit" or cmd.lower() == "shutdown":
         exit.rl()
-    elif cmd.lower().startswith("pkgm install "):
+    elif cmd.lower().startswith("pkgm install"):
         pkgm.install(cmd)
-    elif cmd.lower().startswith("tutr "):
+    elif cmd.lower().startswith("tutr"):
         tutr.tutr(cmd)
-    elif cmd.lower().startswith("exec "):
+    elif cmd.lower().startswith("exec"):
         execute.exec(cmd)
     elif cmd.lower() == "pkgm list":
         pkgm.list()
@@ -39,5 +41,7 @@ def check(cmd):
     elif cmd.lower() == "pkgm-gui run":
         command = 'pkgm install ' + guipkgm.run()
         pkgm.install(command)
+    elif cmd.lower().startswith("tree"):
+        filesys.tree(cmd.split(' ')[1])
     else:
         print("Command not found run help for list of commands")

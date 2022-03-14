@@ -28,4 +28,4 @@ else:
             exit(0)
         else:
             print("Password and username matches")
-            mainwindow()
+            mainwindow(username)

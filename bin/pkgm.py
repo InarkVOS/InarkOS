@@ -28,24 +28,21 @@ def list():
         else:
             installed = f"[red]Not Installed[/red]"
         print(f"[green]Command {i+1}. [/green]" + file[i].replace("\n", "").split(" ")[2] + f" (" + installed + ")")
+
 def run(cmd):
-    if cmd[0] == '.':
+    if cmd[0:2] == './':
+        found = False
         cmd = cmd[2:]
         if cmd+'.py' in os.listdir('ubin'):
-            os.system("python ubin/" + cmd + '.py')
+            os.system("python3 ubin/" + cmd + '.py')
         else:
             file = open('bin/pkgnames.txt', 'r').readlines()
             for i in range(len(file)):
                 if file[i].replace('\n', '').split(' ')[2] == cmd:
-                    print(f'Command not found but can be installed with: [cyan]pkgm install[/cyan][yellow]' + file[i].split(' ')[0] + f'[/yellow]')
-    else:
-        if cmd.split(' ')[2]+'.py' in os.listdir('ubin'):
-            os.system("python ubin/" + cmd.split(' ')[2] + '.py')
-        else:
-            file = open('bin/pkgnames.txt', 'r').readlines()
-            for i in range(len(file)):
-                if file[i].replace('\n', '').split(' ')[2] == cmd.split(' ')[2]:
-                    print(f'Command not found but can be installed with: [cyan]pkgm install [/cyan][yellow]' + file[i].split(' ')[0] + f'[/yellow]')
+                    found = True
+                    print(f'Package not found but can be installed with: [cyan]pkgm install[/cyan][yellow] ' + file[i].split(' ')[0] + f'[/yellow]')
+            if found == False:
+                print('Package not found.')
 
 def uninstall(cmd):
     for i in range(len(cmd.split(' ')[2:])):

@@ -7,7 +7,7 @@ import hashlib
 import time
 
 if os.listdir('MainDrive/Users') == []:
-    print('No users have been created please run init.py')
+    os.system('python3 setup.py')
     exit()
 else:
     username = input("Username: ")

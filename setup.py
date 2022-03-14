@@ -8,7 +8,14 @@ if os.name == 'nt':
     os.system('pip install windows-curses')
 print("If you wanna use g* packages do pip install pyqt5")
 print("Done...")
-if os.path.exists('MainDrive/Users'):
+if 'MainDrive' in os.listdir('.'):
+    if os.name == 'nt':
+        os.system('powershell -c "rm MainDrive"')
+    else:
+        os.system('rm MainDrive -rf')
+os.mkdir('MainDrive/')
+os.mkdir('MainDrive/Users/')
+if os.listdir('MainDrive/Users') != []:
     os.system('python3 bootscreen.py')
 else:
     username = input("Username: ")
@@ -16,10 +23,8 @@ else:
     encp = password.encode()
     d = hashlib.sha256(encp)
     hash = d.hexdigest()
-    os.mkdir('pkgprograms')
-    os.mkdir('MainDrive/')
-    os.mkdir('MainDrive/Users/')
     os.mkdir(f'MainDrive/Users/{username}')
-    os.mkdir('ubin/')
+    if 'ubin' not in os.listdir('.'):
+        os.mkdir('ubin/')
     usrdir = open(f"MainDrive/Users/{username}/usrdir","w").write(username)
     pswdir = open(f"MainDrive/Users/{username}/pswdir","w").write(hash)

@@ -4,11 +4,9 @@ repo
 xcde/
 __pycache__/
 .vscode/
-MainDrive/Users/*
 
 ubin/*
 venv/*
 
+MainDrive/Users/*
 bin/__pycache__/
-bin/variables.py
-bin/test.py

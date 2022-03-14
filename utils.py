@@ -3,11 +3,11 @@ import os
 
 def clearline():
     print('\r' + ' '*80)
-    return
+    return ''
 
 def goup():
     print('\033[A')
-    return
+    return ''
 
 def system(cmd):
     if cmd == 'clear' or cmd == 'cls':

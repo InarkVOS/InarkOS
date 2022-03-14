@@ -4,6 +4,7 @@ repo
 xcde/
 __pycache__/
 .vscode/
+MainDrive/Users/*
 
 ubin/*
 venv/*

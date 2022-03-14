@@ -1,7 +1,7 @@
 import time as t
 import os
 
-def clear():
+def clearline():
     print('\r' + ' '*80)
     return
 

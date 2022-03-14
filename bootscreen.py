@@ -50,13 +50,12 @@ def fancyboot():
     time.sleep(0.07)
     
 clear_command = 'clear'
-if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
-    command = 'cls'
+if os.name == 'nt':  # If Machine is running on Windows, use cls
+    clear_command = 'cls'
 
 if '--noboot' not in sys.argv:
 
     init()
-    # Please not this is just fanciness. You can always skip bootscreen by --bcomp
 
     os.system(clear_command)
 

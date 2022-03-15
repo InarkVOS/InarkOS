@@ -43,5 +43,7 @@ def check(cmd, usr):
         pkgm.install(command)
     elif cmd.lower().startswith("tree"):
         sys.tree(cmd.split(' ')[1])
+    elif cmd.lower() == "matrix":
+        matrix.run()
     else:
         print("Command not found run help for list of commands")

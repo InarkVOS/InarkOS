@@ -24,8 +24,8 @@ def check(cmd, usr):
         exit.rl()
     elif cmd.lower().startswith("pkgm install"):
         pkgm.install(cmd)
-    elif cmd.lower().startswith("tutr"):
-        tutr.tutr(cmd)
+    elif cmd.lower().startswith("tutr read"):
+        tutr.tutr_read(cmd.lower().split(' ')[2])
     elif cmd.lower().startswith("exec"):
         execute.exec(cmd)
     elif cmd.lower() == "pkgm list":

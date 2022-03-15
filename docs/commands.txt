@@ -3,12 +3,14 @@ animate [text]:Animates the given text.
 clear:Clears the console/screen
 
 dir [directory]:List the files in the supplied directory (if the directory is not supplied the default directory will be [user]/Desktop).
+ls [directory]:List the files in the supplied directory (if the directory is not supplied the default directory will be [user]/Desktop).
 
 echo [text]:Prints the text to the console/screen.
 
 exec [program]:Runs the program specified.
 
 shutdown:Closes the VOS.
+exit:Closes the VOS.
 
 help:Shows a list of commands.
 

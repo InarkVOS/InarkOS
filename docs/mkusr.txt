@@ -1,0 +1,3 @@
+
+Makes a new user.
+Usage: mkusr/makeuser

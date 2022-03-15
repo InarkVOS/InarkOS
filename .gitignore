@@ -10,3 +10,4 @@ venv/*
 
 MainDrive/Users/*
 bin/__pycache__/
+test.py

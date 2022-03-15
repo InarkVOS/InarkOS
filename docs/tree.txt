@@ -1,0 +1,3 @@
+
+Lists a file tree of the directory supplied
+Usage: tree [directory (relative to your user account directory)]

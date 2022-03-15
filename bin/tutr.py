@@ -1,5 +1,5 @@
 import os
-from rich import print
+from colorama import Fore
 
 def tutr(command):
     arg = command.split('tutr ', 1)[-1]
@@ -9,4 +9,4 @@ def tutr(command):
             with open('docs/' + filename + ".txt", 'r') as f:
                 print(f.read())
         else:
-            print("No documentation found for [bold yellow]" + filename + "[/bold yellow]")
+            print("No documentation found for " + Fore.YELLOW + filename + Fore.WHITE)

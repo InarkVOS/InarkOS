@@ -1,6 +1,7 @@
 
 Commands: 
-"pkgm install [package name]"
+"pkgm install [package name(s) seperated by a space]"
+"pkgm uninstall [package name(s) seperated by a space]"
 "pkgm list"
 "pkgm run [package name]"
 For advanced guides(ex: Adding packages to the repo do "tutr read advanced")

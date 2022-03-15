@@ -37,11 +37,11 @@ def check(cmd, usr):
     elif cmd.lower() == "mkusr" or cmd.lower() == "makeuser":
         usr.mkusr()
     elif cmd.lower() == "hostname":
-        print('WORK IN PROGRESS!!!')
-    elif cmd.lower() == "pkgm-gui run":
+        sys.hostname(usr)
+    elif cmd.lower() == "pkgm-gui":
         command = 'pkgm install ' + guipkgm.run()
         pkgm.install(command)
     elif cmd.lower().startswith("tree"):
-        filesys.tree(cmd.split(' ')[1])
+        sys.tree(cmd.split(' ')[1])
     else:
         print("Command not found run help for list of commands")

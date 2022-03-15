@@ -71,3 +71,15 @@ def uninstall(cmd):
                 else:
                     print('Package not found.')
                     break
+
+def add_package(url, pname):
+    try:
+        res = requests.get(url, stream=True)
+        print('NOTE: To add the package to the OS contact the OWNER(S)')
+        data = open('pkgnames.txt', 'r').readlines()
+        data.append('\n' + pname + ' ' + url + ' ' + pname)
+        data = ''.join(data)
+        open('pkgnames.txt', 'w').write(data)
+        print('Added!')
+    except requests.exceptions.MissingSchema:
+        print('Invalid URL')

@@ -1,3 +1,0 @@
-
-Prints the version of the VOS.
-Usage: version

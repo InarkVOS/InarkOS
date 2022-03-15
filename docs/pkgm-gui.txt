@@ -1,4 +1,0 @@
-
-Displays a gui version of the package manager
-Usage: pkgm-gui
-

@@ -1,4 +1,0 @@
-
-List the files in the home directory.
-If no directory is supplied then it will default to the current directory
-Usage: ls [directory]

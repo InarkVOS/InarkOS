@@ -1,3 +1,0 @@
-
-Animates the given text.
-Usage: animate [text]

@@ -14,3 +14,6 @@ Advanced guide(s):
     [name of the package] [RAW pastebin url to the package] [command to run the package]
     After you added it test if it is working!
     If it works please upload the new file with the pull request function
+
+    -- Animate --
+    

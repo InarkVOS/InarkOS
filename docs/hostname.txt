@@ -1,4 +1,0 @@
-
-Prints the hostname similar to "whoami" on windows or linux
-Usage: hostname
-

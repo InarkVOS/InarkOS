@@ -1,3 +1,0 @@
-
-Prints a text in the console.
-Usage: echo [text]

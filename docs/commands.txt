@@ -1,0 +1,29 @@
+animate [text]:Animates the given text.
+
+clear:Clears the console/screen
+
+dir [directory]:List the files in the supplied directory (if the directory is not supplied the default directory will be [user]/Desktop).
+
+echo [text]:Prints the text to the console/screen.
+
+exec [program]:Runs the program specified.
+
+shutdown:Closes the VOS.
+
+help:Shows a list of commands.
+
+hostname:Shows the hostname of the current user similar to 'whoami'.
+
+matrix:Shows a hacker matrix screen.
+
+makeuser:Creates a user.
+
+pkgm-gui:Displays a GUI package manager.
+
+pkgm:Displays the package manager. (Arguments are [install [package(s)]/uninstall [package(s)]/list])
+
+tree [directory]:Displays a file tree in the supplied directory (if the directory is not supplied the default directory will be [user]/Desktop)
+
+version:Displays the version of the VOS
+
+add-package [PASTEBIN url] [pakage name]:Adds a package to the package manager

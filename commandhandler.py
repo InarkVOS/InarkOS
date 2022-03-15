@@ -45,5 +45,7 @@ def check(cmd, usr):
         sys.tree(cmd.split(' ')[1])
     elif cmd.lower() == "matrix":
         matrix.run()
+    elif cmd.lower().startswith("add-package"):
+        pkgm.add_package(cmd.lower().split(' ')[1], cmd.lower().split(' ')[2])
     else:
         print("Command not found run help for list of commands")

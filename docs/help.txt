@@ -1,3 +1,0 @@
-
-Prints all of the available commands.
-Usage: help

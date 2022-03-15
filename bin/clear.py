@@ -1,3 +1,6 @@
-from utils import system
+import os
 def clearConsole():
-    system('cls')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')

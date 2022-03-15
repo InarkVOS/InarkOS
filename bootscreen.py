@@ -6,6 +6,7 @@ import os
 import random
 import sys
 
+w, h = os.get_terminal_size()
 targets = [
     'O Create System Users.',
     'O Entropy Daemon based on the HAVEGE algorithm.',
@@ -55,46 +56,81 @@ if os.name == 'nt':  # If Machine is running on Windows, use cls
 
 if '--noboot' not in sys.argv:
 
-    init()
+    data = open('sys_settings.cfg', 'r').readlines()
+    for i in range(len(data)):
+        if data[i].split('=')[0] == 'phaseboot':
+            if data[i].split('=')[1] == 'True':
+                os.system(clear_command)
 
-    os.system(clear_command)
+                fancyboot()
+                def cprint(r, g, b, text):
+                    print("\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text))
 
-    fancyboot()
+                a = 1
+                v = 0
 
-    try:
-        win = initscr()
-        start_color()
-        curs_set(0)
+                for i in range(255):
+                    os.system('cls')
+                    if v%255 == 0:
+                        if a == 1:
+                            a = 0
+                        else:
+                            a = 1
+                    if a == 1:
+                        v -= 3
+                    else:
+                        v += 3
+                    for i in range(h//2-3):
+                        print()
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██╗███╗  ██╗ █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║████╗ ██║██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██╔██╗██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║╚████║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║ ╚███║██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '╚═╝╚═╝  ╚══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ')
+                    for i in range(h//2-4):
+                        print()
+            else:
+                init()
 
-        y, x = win.getmaxyx()
-        y = y // 2
-        x = x // 2
-        scl = 20
-        offset = 3
-        yoffset = y - 15
+                os.system(clear_command)
+
+                fancyboot()
+
+                try:
+                    win = initscr()
+                    start_color()
+                    curs_set(0)
+
+                    y, x = win.getmaxyx()
+                    y = y // 2
+                    x = x // 2
+                    scl = 20
+                    offset = 3
+                    yoffset = y - 15
 
 
-        init_pair(1, COLOR_CYAN, COLOR_BLACK)
+                    init_pair(1, COLOR_CYAN, COLOR_BLACK)
 
-        win.attron(color_pair(1))
-        win.addstr(y + yoffset - 5 - offset, x - 27, "██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
-        win.addstr(y + yoffset - 4 - offset, x - 27, "██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
-        win.addstr(y + yoffset - 3 - offset, x - 27, "██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
-        win.addstr(y + yoffset - 2 - offset, x - 27, "██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
-        win.addstr(y + yoffset - 1 - offset, x - 27, "██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
-        win.addstr(y + yoffset - 0 - offset, x - 27, "╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
+                    win.attron(color_pair(1))
+                    win.addstr(y + yoffset - 5 - offset, x - 27, "██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
+                    win.addstr(y + yoffset - 4 - offset, x - 27, "██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
+                    win.addstr(y + yoffset - 3 - offset, x - 27, "██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
+                    win.addstr(y + yoffset - 2 - offset, x - 27, "██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
+                    win.addstr(y + yoffset - 1 - offset, x - 27, "██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
+                    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
 
-        for i in range(scl + 1):
-            win.addstr(y + 8, x - round(scl / 2) - 2, "[" + "#" * i + "-" * (scl - i) + ']')
-            win.addstr(y + 10, x - round(scl / 2) - 2 + 6, "Booting...")
-            win.refresh()
-            time.sleep(0.07)
+                    for i in range(scl + 1):
+                        win.addstr(y + 8, x - round(scl / 2) - 2, "[" + "#" * i + "-" * (scl - i) + ']')
+                        win.addstr(y + 10, x - round(scl / 2) - 2 + 6, "Booting...")
+                        win.refresh()
+                        time.sleep(0.07)
 
-        time.sleep(0.6)
-        win.attroff(color_pair(1))
-        endwin()
-    except:
-        pass
+                    time.sleep(0.6)
+                    win.attroff(color_pair(1))
+                    endwin()
+                except:
+                    pass
 
 os.system(clear_command)
 

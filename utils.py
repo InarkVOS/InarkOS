@@ -15,3 +15,5 @@ def system(cmd):
             os.system('cls')
         else:
             os.system('clear')
+    else:
+        os.system(cmd)

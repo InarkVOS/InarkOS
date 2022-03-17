@@ -1,0 +1,10 @@
+requests
+psutil
+colorama
+termcolor
+py-cpuinfo
+rich
+tqdm
+pyqt5
+windows-curses
+numpy

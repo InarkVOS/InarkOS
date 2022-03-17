@@ -6,3 +6,8 @@ def tutr_read(fname):
     for i in range(len(data)):
         if data[i].split(':')[0] == fname:
             print(data[i].split(':')[1][:-1])
+            break
+        elif data[i].split(' ')[0] == fname:
+            print(data[i].split(':')[1][:-1])
+            break
+    print('Package not found')

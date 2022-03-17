@@ -1,8 +1,13 @@
+import os
+if 'MainDrive' not in os.listdir():
+    os.system('pip install -r req.txt')
+    os.system('pip3 install -r req.txt')
+    os.system('python -m pip install -r req.txt')
+    os.system('python3 -m pip install -r req.txt')
 from curses import *
 from colorama import Fore
 from colorama import init
 import time
-import os
 import random
 import sys
 

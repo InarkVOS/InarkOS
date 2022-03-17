@@ -1,0 +1,8 @@
+# To install all modules needed run: pip install -r requirements.txt # or just use setup.py
+curses # If you're on windows install windows-curses
+colorama # For colored text
+requests # http requests
+psutil
+termcolor # Also for colored text
+py-cpuinfo # Get cpu info
+rich

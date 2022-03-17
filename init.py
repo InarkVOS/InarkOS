@@ -1,6 +1,9 @@
-import os
+import os, platform
 from os.path import exists
 import sys
+
+python = "python3"
+if platform.system() == "Windows": python = "python"
 
 if '--bcomp' in sys.argv:
     try:
@@ -8,13 +11,13 @@ if '--bcomp' in sys.argv:
             import home
             home.mainwindow('NOUSR')
         else:
-            if os.path.exists('MainDrive/Users/'):
+            if exists('MainDrive/Users/'):
                 print("Found file redirecting")
-                os.system("python3 login.py")
+                os.system(f"{python} login.py")
             else:
                 print("File not found redirecting")
-                os.system("python3 setup.py")
+                os.system(f"{python} setup.py")
     except:
         pass
 else:
-    os.system("python3 bootscreen.py")
+    os.system(f"{python} bootscreen.py")

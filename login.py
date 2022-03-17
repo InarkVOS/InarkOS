@@ -4,10 +4,13 @@ import os
 from os.path import exists
 import getpass
 import hashlib
-import time
+import platform
 
-if os.listdir('MainDrive/Users') == []:
-    os.system('python3 setup.py')
+python = "python3"
+if platform.system() == "Windows": python = "python"
+
+if len(os.listdir('MainDrive/Users')) == 0:
+    os.system(f'{python} setup.py')
     exit()
 else:
     username = input("Username: ")

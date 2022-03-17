@@ -182,7 +182,7 @@ def fancyboot():
             print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + target[2:])
         elif _ == 'S': # Service
             print(f'{Fore.WHITE}' + target[2:])
-        time.sleep(random.uniform(0.005, 0.1))
+        time.sleep(random.uniform(0.005, 0.02))
     time.sleep(1.5)
     
 clear_command = 'clear'

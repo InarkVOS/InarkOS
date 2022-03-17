@@ -1,9 +1,6 @@
 import os
 import getpass
 import hashlib
-print("Please wait until we install the dependencies...")
-if os.name == 'nt':
-    os.system('pip install windows-curses')
 print("If you wanna use g* packages do pip install pyqt5")
 print("Done...")
 if 'MainDrive' in os.listdir('.'):

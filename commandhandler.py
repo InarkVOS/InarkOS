@@ -8,8 +8,8 @@ def check(cmd, usr):
         filesys.tree(cmd.split(' ')[1], usr)
     elif cmd.lower() == "clock":
         clock.run()
-    elif cmd.lower() == "dir" or cmd.lower() == "ls":
-        ls.listdirectory(cmd[3:])
+    elif cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
+        ls.listdirectory(cmd[3:], usr)
     elif cmd.lower().startswith("echo"):
         echo.echo(cmd)
     elif cmd.lower() == "help":

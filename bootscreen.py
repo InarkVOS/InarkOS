@@ -1,9 +1,17 @@
 import os
+import platform
 if 'MainDrive' not in os.listdir():
-    os.system('pip install -r req.txt')
-    os.system('pip3 install -r req.txt')
-    os.system('python -m pip install -r req.txt')
-    os.system('python3 -m pip install -r req.txt')
+    python = "python3"
+    pip = "pip3"
+    if platform.system() == "Windows":
+        python = "python"
+        pip = "pip"
+
+    print("Please wait until we install the dependencies...")
+
+    os.system(f"{pip} install -r req.txt")
+    os.system(f"{python} -m pip install -r req.txt")
+    os.system('cls')
 from curses import *
 from colorama import Fore
 from colorama import init
@@ -254,12 +262,12 @@ if '--noboot' not in sys.argv:
                     init_pair(1, COLOR_CYAN, COLOR_BLACK)
 
                     win.attron(color_pair(1))
-                    win.addstr(y + yoffset - 5 - offset, x - 27, "██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
-                    win.addstr(y + yoffset - 4 - offset, x - 27, "██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
-                    win.addstr(y + yoffset - 3 - offset, x - 27, "██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
-                    win.addstr(y + yoffset - 2 - offset, x - 27, "██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
-                    win.addstr(y + yoffset - 1 - offset, x - 27, "██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
-                    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
+                    win.addstr(y + yoffset - 5 - offset, x - 27, "██╗███╗  ██╗ █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
+                    win.addstr(y + yoffset - 4 - offset, x - 27, "██║████╗ ██║██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
+                    win.addstr(y + yoffset - 3 - offset, x - 27, "██║██╔██╗██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
+                    win.addstr(y + yoffset - 2 - offset, x - 27, "██║██║╚████║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
+                    win.addstr(y + yoffset - 1 - offset, x - 27, "██║██║ ╚███║██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
+                    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═╝╚═╝  ╚══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
 
                     for i in range(scl + 1):
                         win.addstr(y + 8, x - round(scl / 2) - 2, "[" + "#" * i + "-" * (scl - i) + ']')

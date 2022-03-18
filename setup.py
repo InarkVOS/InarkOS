@@ -1,21 +1,7 @@
 import os
 import getpass
 import hashlib
-import platform
-
-python = "python3"
-pip = "pip3"
-if platform.system() == "Windows":
-    python = "python"
-    pip = "pip"
-
-print("Please wait until we install the dependencies...")
-
-os.system(f"{pip} install requests psutil colorama termcolor py-cpuinfo rich ")
-os.system(f"{python} -m pip install requests psutil colorama termcolor py-cpuinfo rich")
-
-if os.name == 'nt':
-    os.system('pip install windows-curses')
+os.system('cls')
 print("If you wanna use g* packages do pip install pyqt5")
 print("Done...")
 

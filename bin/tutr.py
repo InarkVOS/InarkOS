@@ -10,4 +10,3 @@ def tutr_read(fname):
         elif data[i].split(' ')[0] == fname:
             print(data[i].split(':')[1][:-1])
             break
-    print('Package not found')

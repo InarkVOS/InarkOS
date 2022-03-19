@@ -288,6 +288,8 @@ if '--noboot' not in sys.argv:
 os.system(clear_command)
 
 if '--nologin' in sys.argv:
-    os.system("python3 init.py --bcomp --nologin")
+    try:newargs = sys.argv.remove('--noboot')
+    except:pass
+    os.system(f"python3 init.py --bcomp {' '.join(sys.argv)}")
 else:
     os.system('python3 init.py --bcomp')

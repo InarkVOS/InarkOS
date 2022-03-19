@@ -75,7 +75,7 @@ def uninstall(cmd):
 def add_package(url, pname):
     try:
         res = requests.get(url, stream=True)
-        print('NOTE: To add the package to the OS contact the OWNER(S)')
+        print('NOTE: To add the package to the OS contact the OWNER/DEVS')
         data = open('pkgnames.txt', 'r').readlines()
         data.append('\n' + pname + ' ' + url + ' ' + pname)
         data = ''.join(data)

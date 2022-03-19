@@ -9,6 +9,9 @@ def custom_listdir(fdir):
 	for i in range(len(folders)):
 		try:
 			ls.remove(folders[i])
+			for j in range(len(ls)):
+				if ls[j][0] == '.':
+					ls.remove(ls[j])
 		except:
 			pass
 	if ls == []:

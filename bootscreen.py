@@ -11,6 +11,10 @@ if 'MainDrive' not in os.listdir():
 
     os.system(f"{pip} install -r req.txt")
     os.system(f"{python} -m pip install -r req.txt")
+    if os.name == 'nt':
+        os.system('pip install windows-curses')
+    else:
+        os.system('pip install curses')
     os.system('cls')
 from curses import *
 from colorama import Fore

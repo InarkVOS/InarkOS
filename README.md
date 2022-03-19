@@ -10,7 +10,7 @@ DarkOS is a operating system(Virtual OS) written in 100% Python
     $ git clone https://github.com/pyDarkVOS/DarkOS
 ### 2. Open the directory
     $ cd DarkOS
-### 4. Start the setup
+### 3. Start the setup
     $ python3 bootscreen.py
 
 # 1st Dev Is cnamew (Makezdtem) (Owner)

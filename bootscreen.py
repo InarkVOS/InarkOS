@@ -285,7 +285,7 @@ if '--noboot' not in sys.argv:
                 except Exception as e:
                     print(e)
 
-# os.system(clear_command)
+os.system(clear_command)
 
 if '--nologin' in sys.argv:
     os.system(f"python3 init.py --bcomp {' '.join(sys.argv[1:])}")

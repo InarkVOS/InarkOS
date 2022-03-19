@@ -19,12 +19,12 @@ DarkOS is a operating system(Virtual OS) written in 100% Python
 
 # 1st Dev Is cnamew (Makezdtem) (Owner)
 Discord - cnamew#9993 <br />
-Github  - ignGeri <br />
+Github   - ignGeri <br />
 
 # 2nd Dev Is Revolving Madness
 Discord - Revolving Madness#4797 <br />
-Github  - RevolvingMadness <br />
+Github   - RevolvingMadness <br />
 
 # 3rd Dev Is userrname
 Discord - userrname#7395 <br />
-Github  - demongamer3001 <br />
+Github   - demongamer3001 <br />

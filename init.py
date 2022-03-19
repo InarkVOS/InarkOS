@@ -9,8 +9,10 @@ if platform.system() == "Windows": python = "python"
 if '--bcomp' in sys.argv:
     try:
         if '--nologin' in sys.argv:
-            username = sys.argv[sys.argv.index('--username')+1]
-            password = sys.argv[sys.argv.index('--password')+1]
+            try:
+                username = sys.argv[sys.argv.index('--username')+1]
+                password = sys.argv[sys.argv.index('--password')+1]
+            except:pass
             if username not in os.listdir('MainDrive/Users'):
                 print('Username is incorrect')
             else:

@@ -28,15 +28,15 @@ def listdirectory(fdir, usr):
 		print('Please login to a user account.')
 	else:
 		if fdir == '':
-			files = custom_listdir(f'MainDrive/Users/{usr}')
+			files = custom_listdir(f'MainDrive/')
 			if files == 'Folder is empty.':
 				print(files)
 			elif files == 'Folder does not exist.':
 				print(files)
 			else:
-				print('\n'.join(custom_listdir(f'MainDrive/Users/{usr}')))
+				print('\n'.join(custom_listdir(f'MainDrive/')))
 		else:
-			files = custom_listdir(f'MainDrive/Users/{usr}/{fdir}')
+			files = custom_listdir(f'MainDrive/{fdir}')
 			if files == 'Folder is empty.':
 				print(files)
 			elif files == 'Folder does not exist.':

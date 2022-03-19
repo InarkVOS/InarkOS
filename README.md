@@ -1,5 +1,5 @@
 
-# Inark-OS
+# DarkOS
 DarkOS is a operating system(Virtual OS) written in 100% Python   
 **Note: The program is currently in development!**
 

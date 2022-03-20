@@ -20,4 +20,5 @@ if 'ubin' not in os.listdir('.'):
     os.mkdir('ubin')
 usrdir = open(f"MainDrive/Users/{username}/usrdir", "w").write(username)
 pswdir = open(f"MainDrive/Users/{username}/pswdir", "w").write(hash)
+os.mkdir(f'MainDrive/Users/{username}/Desktop')
 os.system(f'python3 bootscreen.py --noboot --nologin --username {username} --password {password}')

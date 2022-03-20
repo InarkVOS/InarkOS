@@ -5,15 +5,18 @@ ops = ['+', '-', '/', '*', '^', '**']
 
 def check(cmd, usr):
     math = 0
-    for op in ops:
-        if op in cmd:
-            math = 1
-            exec(f'print(str({cmd})[:7])')
-            break
+    if 'tree' not in cmd and 'dir' not in cmd and 'add-package' not in cmd and 'ls' not in cmd and 'texteditor' not in cmd and 'text-editor' not in cmd:
+        for op in ops:
+            if op in cmd:
+                math = 1
+                exec(f'print(str({cmd}).split(\'.\')[0])')
+                break
     if cmd.lower() == "":
         pass
+    elif cmd.lower() == "texteditor" or cmd.lower() == "text-editor":
+        texteditor.run(usr)
     elif cmd.lower().startswith('tree'):
-        filesys.tree(cmd.split(' ')[1], usr)
+        filesys.tree(cmd)
     elif cmd.lower() == "clock":
         clock.run()
     elif cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
@@ -49,8 +52,6 @@ def check(cmd, usr):
     elif cmd.lower() == "pkgm-gui":
         command = 'pkgm install ' + guipkgm.run()
         pkgm.install(command)
-    elif cmd.lower().startswith("tree"):
-        sys.tree(cmd.split(' ')[1])
     elif cmd.lower() == "matrix":
         matrix.run()
     elif cmd.lower().startswith("add-package"):

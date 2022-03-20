@@ -7,3 +7,4 @@ rich
 tqdm
 pyqt5
 numpy
+npyscreen

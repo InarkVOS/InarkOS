@@ -1,11 +1,17 @@
 from bin import *
 from bin import __all__
 
-ops = ['+', '-', '/', '*', '^', '**']
+ops  = ['+', '-', '/', '*', '^', '**']
+cmds = ['pkgm-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
 
 def check(cmd, usr):
     math = 0
-    if './' not in cmd and 'tree' not in cmd and 'dir' not in cmd and 'add-package' not in cmd and 'ls' not in cmd and 'texteditor' not in cmd and 'text-editor' not in cmd:
+    a = 0
+    for cmd0 in cmds:
+        if cmd0 in cmd:
+            a = 1
+            break
+    if a == 0:
         for op in ops:
             if op in cmd:
                 math = 1

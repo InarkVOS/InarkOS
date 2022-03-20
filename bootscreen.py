@@ -9,8 +9,10 @@ if 'MainDrive' not in os.listdir():
 
     print("Please wait until we install the dependencies...")
 
-    os.system(f"{pip} install -r req.txt")
-    os.system(f"{python} -m pip install -r req.txt")
+    os.system(f"{pip} install -r req.txt --no-warn-script-location")
+    os.system(f"{pip}3 install -r req.txt --no-warn-script-location")
+    os.system(f"{python} -m pip install -r req.txt --no-warn-script-location")
+    os.system(f"{python}3 -m pip install -r req.txt --no-warn-script-location")
     if os.name == 'nt':
         os.system('pip install windows-curses')
     else:
@@ -193,7 +195,7 @@ def fancyboot():
         _ = target.split(' ')[0]
         if _ == 'O': # Ok
             print(f'[  {Fore.GREEN}' + 'OK' + f'{Fore.WHITE}  ] ' + target[2:])
-        elif _ == '#':
+        elif _ == '#': # Blank
             print(' '*9 + str(target[2:]))
         elif _ == 'F': # Fail
             print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + target[2:])
@@ -211,7 +213,7 @@ if '--noboot' not in sys.argv:
     data = open('sys_settings.cfg', 'r').readlines()
     for i in range(len(data)):
         if data[i].split('=')[0] == 'phaseboot':
-            if data[i].split('=')[1] == 'True':
+            if data[i].split('=')[1].replace('\n', '') == 'True':
                 os.system(clear_command)
 
                 fancyboot()

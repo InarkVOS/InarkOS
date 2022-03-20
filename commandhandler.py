@@ -1,7 +1,15 @@
 from bin import *
 from bin import __all__
 
+ops = ['+', '-', '/', '*', '^', '**']
+
 def check(cmd, usr):
+    math = 0
+    for op in ops:
+        if op in cmd:
+            math = 1
+            exec(f'print(str({cmd})[:7])')
+            break
     if cmd.lower() == "":
         pass
     elif cmd.lower().startswith('tree'):
@@ -48,4 +56,5 @@ def check(cmd, usr):
     elif cmd.lower().startswith("add-package"):
         pkgm.add_package(cmd.lower().split(' ')[1], cmd.lower().split(' ')[2])
     else:
-        print("Command not found run help for list of commands")
+        if math == 0:print("Command not found run help for list of commands")
+        math = 1

@@ -8,22 +8,19 @@ if platform.system() == "Windows": python = "python"
 
 if '--bcomp' in sys.argv:
     if '--nologin' in sys.argv:
-        try:
-            username = sys.argv[sys.argv.index('--username')+1]
-            password = sys.argv[sys.argv.index('--password')+1]
-            if username not in os.listdir('MainDrive/Users'):
-                print('Username is incorrect')
-            else:
-                password_f = open(f'MainDrive/Users/{username}/pswdir', 'r').read()
-                username_f = open(f'MainDrive/Users/{username}/usrdir', 'r').read()
-                encp = password.encode()
-                d = hashlib.sha256(encp)
-                hash = d.hexdigest()
-                if hash == password_f and username == username_f:
-                    import home
-                    home.mainwindow(username)
-        except Exception as e:
-            pass
+        username = sys.argv[sys.argv.index('--username')+1]
+        password = sys.argv[sys.argv.index('--password')+1]
+        if username not in os.listdir('MainDrive/Users'):
+            print('Username is incorrect')
+        else:
+            password_f = open(f'MainDrive/Users/{username}/pswdir', 'r').read()
+            username_f = open(f'MainDrive/Users/{username}/usrdir', 'r').read()
+            encp = password.encode()
+            d = hashlib.sha256(encp)
+            hash = d.hexdigest()
+            if hash == password_f and username == username_f:
+                import home
+                home.mainwindow(username)
         if '--username' not in sys.argv and '--password' not in sys.argv:
             import home
             home.mainwindow('NOUSR')

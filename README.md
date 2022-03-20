@@ -1,15 +1,15 @@
 
-# DarkOS
-DarkOS is a operating system(Virtual OS) written in 100% Python   
+# InarkOS
+InarkOS is a operating system(Virtual OS) written in 100% Python   
 **Note: The program is currently in development!**
 
 #
 # Installing
 
 ### 1. Clone the repository
-    $ git clone https://github.com/pyDarkVOS/DarkOS
+    $ git clone https://github.com/pyDarkVOS/InarkOS
 ### 2. Open the directory
-    $ cd DarkOS
+    $ cd InarkOS
 ### 3. Start the setup
     $ python3 bootscreen.py
 

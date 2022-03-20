@@ -117,14 +117,14 @@ targets = [
     "O Started irqbalance daemon.",
     "S irqbalance.service",
     "# Starting Initialize hardware monitoring sensors...",
-    "O Started darkos-system.service.",
-    "S darkos-system.service",
+    "O Started inarkos-system.service.",
+    "S inarkos-system.service",
     "# Starting Dispatcher daemon for systemd-networkd...",
     "# Starting Raise network interfaces...",
     "# Starting Authorization Manager...",
     "# Starting System Logging Service...",
     "# Starting Login Service...",
-    "# Starting DarkOS system adjustments...",
+    "# Starting InarkOS system adjustments...",
     "# Starting Disk Manager",
     "# Starting HPA supplicant...",
     "O Finished Remove Stale Online ext4 Metadata Check Snapshots.",
@@ -152,8 +152,8 @@ targets = [
     "O Started Authorization Manager.",
     "S polkit.service",
     "# Starting Modem Manager...",
-    "S darkos-system-adjustments.service",
-    "O Finished DarkOS system adjustments.",
+    "S inarkos-system-adjustments.service",
+    "O Finished InarkOS system adjustments.",
     "O Started Network Manager.",
     "O Reached target Network.",
     "S NetworkManager.service",
@@ -183,9 +183,9 @@ targets = [
     "F Mounting /dev/sda3",
     "O Mounting /boot",
     "O Mounting /root",
-    "O Starting DarkOS...",
-    "S darkos.service",
-    "O Starting DarkOS.",
+    "O Starting InarkOS...",
+    "S inarkos.service",
+    "O Starting InarkOS.",
 ]
 
 def fancyboot():
@@ -235,12 +235,12 @@ if '--noboot' not in sys.argv:
                         v += 3
                     for i in range(h//2-3):
                         print()
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗')
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝')
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ')
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗')
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝')
-                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██╗███╗░░██╗░█████╗░██████╗░██╗░░██╗░░░░░░░█████╗░░██████╗')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║████╗░██║██╔══██╗██╔══██╗██║░██╔╝░░░░░░██╔══██╗██╔════╝')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██╔██╗██║███████║██████╔╝█████═╝░█████╗██║░░██║╚█████╗░')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║╚████║██╔══██║██╔══██╗██╔═██╗░╚════╝██║░░██║░╚═══██╗')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║░╚███║██║░░██║██║░░██║██║░╚██╗░░░░░░╚█████╔╝██████╔╝')
+                    cprint(0, 0, v, ' '*((w//2)-(58//2)) + '╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░░░░░░░╚════╝░╚═════╝░')
                     for i in range(h//2-4):
                         print()
             else:
@@ -266,12 +266,12 @@ if '--noboot' not in sys.argv:
                     init_pair(1, COLOR_CYAN, COLOR_BLACK)
 
                     win.attron(color_pair(1))
-                    win.addstr(y + yoffset - 5 - offset, x - 27, "██████╗  █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗")
-                    win.addstr(y + yoffset - 4 - offset, x - 27, "██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝")
-                    win.addstr(y + yoffset - 3 - offset, x - 27, "██║  ██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ")
-                    win.addstr(y + yoffset - 2 - offset, x - 27, "██║  ██║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗")
-                    win.addstr(y + yoffset - 1 - offset, x - 27, "██████╔╝██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝")
-                    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ")
+                    win.addstr(y + yoffset - 5 - offset, x - 27, "██╗███╗░░██╗░█████╗░██████╗░██╗░░██╗░░░░░░░█████╗░░██████╗")
+                    win.addstr(y + yoffset - 4 - offset, x - 27, "██║████╗░██║██╔══██╗██╔══██╗██║░██╔╝░░░░░░██╔══██╗██╔════╝")
+                    win.addstr(y + yoffset - 3 - offset, x - 27, "██║██╔██╗██║███████║██████╔╝█████═╝░█████╗██║░░██║╚█████╗░")
+                    win.addstr(y + yoffset - 2 - offset, x - 27, "██║██║╚████║██╔══██║██╔══██╗██╔═██╗░╚════╝██║░░██║░╚═══██╗")
+                    win.addstr(y + yoffset - 1 - offset, x - 27, "██║██║░╚███║██║░░██║██║░░██║██║░╚██╗░░░░░░╚█████╔╝██████╔╝")
+                    win.addstr(y + yoffset - 0 - offset, x - 27, "╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░░░░░░░╚════╝░╚═════╝░")
 
                     for i in range(scl + 1):
                         win.addstr(y + 8, x - round(scl / 2) - 2, "[" + "#" * i + "-" * (scl - i) + ']')

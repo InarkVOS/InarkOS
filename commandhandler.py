@@ -5,7 +5,7 @@ ops = ['+', '-', '/', '*', '^', '**']
 
 def check(cmd, usr):
     math = 0
-    if 'tree' not in cmd and 'dir' not in cmd and 'add-package' not in cmd and 'ls' not in cmd and 'texteditor' not in cmd and 'text-editor' not in cmd:
+    if './' not in cmd and 'tree' not in cmd and 'dir' not in cmd and 'add-package' not in cmd and 'ls' not in cmd and 'texteditor' not in cmd and 'text-editor' not in cmd:
         for op in ops:
             if op in cmd:
                 math = 1

@@ -1,2 +1,0 @@
-def interp(expr):
-	pass

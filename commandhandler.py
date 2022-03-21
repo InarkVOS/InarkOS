@@ -6,17 +6,14 @@ cmds = ['pkgm-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
 
 def check(cmd, usr):
     math = 0
-    a = 0
-    for cmd0 in cmds:
-        if cmd0 in cmd:
-            a = 1
-            break
-    if a == 0:
-        for op in ops:
-            if op in cmd:
+    for op in ops:
+        if op in cmd:
+            try:
                 math = 1
                 exec(f'print(str({cmd}).split(\'.\')[0])')
                 break
+            except (NameError, SyntaxError):
+                math = 0
     if cmd.lower() == "":
         pass
     elif cmd.lower() == "text-editor":
@@ -26,7 +23,7 @@ def check(cmd, usr):
     elif cmd.lower() == "clock":
         clock.run()
     elif cmd.lower().startswith("dir") or cmd.lower().startswith("ls"):
-        ls.listdirectory(cmd[3:], usr)
+        ls.listdirectory(''.join(cmd.split(' ')[1:]), usr)
     elif cmd.lower().startswith("echo"):
         echo.echo(cmd)
     elif cmd.lower() == "help":

@@ -1,3 +1,3 @@
 helloworld https://pastebin.com/raw/qbB4Nk63 helloworld
-dfetch https://pastebin.com/raw/hbE7Jmgg dfetch
+dfetch https://pastebin.com/raw/4ecYhfQ6 dfetch
 gcalc https://pastebin.com/raw/dxFfzRvR gcalc

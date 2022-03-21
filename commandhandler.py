@@ -19,7 +19,7 @@ def check(cmd, usr):
                 break
     if cmd.lower() == "":
         pass
-    elif cmd.lower() == "texteditor" or cmd.lower() == "text-editor":
+    elif cmd.lower() == "text-editor":
         texteditor.run(usr)
     elif cmd.lower().startswith('tree'):
         filesys.tree(cmd)

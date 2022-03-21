@@ -31,4 +31,5 @@ else:
             exit(0)
         else:
             print("Password and username matches")
+            open('currentuser.cfg', 'w').write(username)
             mainwindow(username)

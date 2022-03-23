@@ -15,6 +15,9 @@ class TextEditor(npyscreen.NPSApp):
             open(f'MainDrive/Users/{self.usr}/Desktop/{fname.value}', 'w').write(maintext.value)
 
 def run(usr):
-    App = TextEditor(usr)
-    App.run()
-    App = ''
+    try:
+        App = TextEditor(usr)
+        App.run()
+        App = ''
+    except AttributeError:
+        print('There is a bug that you can only run the text editor once i dont know how to fix it. :P')

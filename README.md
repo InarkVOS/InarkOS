@@ -7,7 +7,7 @@ InarkOS is a operating system(Virtual OS) written in 100% Python
 # Installing
 
 ### 1. Clone the repository
-    $ git clone https://github.com/pyDarkVOS/InarkOS
+    $ git clone https://github.com/InarkVOS/InarkOS
 ### 2. Open the directory
     $ cd InarkOS
 ### 3. Start the setup
@@ -24,3 +24,6 @@ Github  - RevolvingMadness
 # 3rd Dev Is demongamer3001
 Discord - userrname#7395  
 Github  - demongamer3001  
+
+# 4th Dev is Intel
+Discord - Intel#1563

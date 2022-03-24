@@ -15,8 +15,10 @@ if 'MainDrive' not in os.listdir():
     os.system(f"{python}3 -m pip install -r req.txt --no-warn-script-location")
     if os.name == 'nt':
         os.system('pip install windows-curses')
+        os.system('pip install msvcrt')
     else:
         os.system('pip install curses')
+        os.system('pip install curtsies')
     os.system('cls')
 from curses import *
 from colorama import Fore

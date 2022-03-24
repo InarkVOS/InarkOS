@@ -1,8 +1,9 @@
 from bin import *
 from bin import __all__
+import os
 
 ops  = ['+', '-', '/', '*', '^', '**']
-cmds = ['pkgm-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
+cmds = ['file-explorer', 'pkgm-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
 
 def check(cmd, usr):
     math = 0
@@ -17,7 +18,9 @@ def check(cmd, usr):
     if cmd.lower() == "":
         pass
     elif cmd.lower() == "text-editor":
-        texteditor.run(usr)
+        os.system(f'python3 bin/texteditor.py --run --user {usr}')
+    elif cmd.lower() == "file-explorer" or cmd.lower() == "fileexplorer":
+        os.system(f'python3 bin/fileexplorer.py --run --user {usr}')
     elif cmd.lower().startswith('tree'):
         filesys.tree(cmd)
     elif cmd.lower() == "clock":

@@ -58,7 +58,7 @@ def run(cmd):
             for i in range(len(file)):
                 if file[i].replace('\n', '').split(' ')[2] == cmd:
                     found = True
-                    rprint(f'Package not found but can be installed with: [cyan]yit install[/cyan][yellow] ' + file[i].split(' ')[0] + f'[/yellow]')
+                    rprint(f'Package not found but can be installed with: [cyan]pkgm install[/cyan][yellow] ' + file[i].split(' ')[0] + f'[/yellow]')
             if found == False:
                 print('Package not found.')
 
@@ -70,7 +70,7 @@ def uninstall(cmd):
             f = open('bin/pkgnames.txt', 'r').readlines()
             for j in range(len(f)):
                 if cmd.split(' ')[2+i] == f[j].split(' ')[0]:
-                    rprint('Package ' + cmd.split(' ')[2+i] + f' not found but can be installed with [cyan]yit install [/cyan][yellow]' + cmd.split(' ')[2+i] + f'[/yellow]')
+                    rprint('Package ' + cmd.split(' ')[2+i] + f' not found but can be installed with [cyan]pkgm install [/cyan][yellow]' + cmd.split(' ')[2+i] + f'[/yellow]')
                     break
                 else:
                     print('Package not found.')

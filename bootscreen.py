@@ -84,8 +84,8 @@ targets = [
     "O Finished Load AppArmor profiles.",
     "O Reached target System Initialization.",
     "O Started ACPI Events Check.",
-    "O Started Daily pkgm download activities.",
-    "O Started Daily pkgm upgrade and clean activities.",
+    "O Started Daily yit download activities.",
+    "O Started Daily yit upgrade and clean activities.",
     "O Started Periodic ext4 Online Metadata Check for All Filesystems.",
     "O Started Discard unused blocks once a week.",
     "O Started Refresh fwupd metadata regularly.",
@@ -201,7 +201,7 @@ def fancyboot():
         elif _ == '#': # Blank
             print(' '*9 + str(target[2:]))
         elif _ == 'F': # Fail
-            print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}]' + target[2:])
+            print(f'[{Fore.RED}' + 'FAILED' + f'{Fore.WHITE}] ' + target[2:])
         elif _ == 'S': # Service
             print(f'{Fore.WHITE}' + target[2:])
         time.sleep(random.uniform(0.005, 0.02))

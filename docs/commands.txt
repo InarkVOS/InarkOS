@@ -20,9 +20,9 @@ matrix:Shows a hacker matrix screen.
 
 makeuser:Creates a user.
 
-pkgm-gui:Displays a GUI package manager.
+yit-gui:Displays a GUI package manager.
 
-pkgm:Displays the package manager. (Arguments are [install [package(s)]/uninstall [package(s)]/list])
+yit:Displays the package manager. (Arguments are [install [package(s)]/uninstall [package(s)]/list])
 
 tree [directory]:Displays a file tree in the supplied directory (if the directory is not supplied the default directory will be [user]/Desktop)
 

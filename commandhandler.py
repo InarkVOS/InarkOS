@@ -3,7 +3,7 @@ from bin import __all__
 import os
 
 ops  = ['+', '-', '/', '*', '^', '**']
-cmds = ['file-explorer', 'pkgm-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
+cmds = ['file-explorer', 'yit-gui', './', 'tree', 'dir', 'ls', 'add-package', 'text-editor']
 
 def check(cmd, usr):
     math = 0
@@ -39,29 +39,29 @@ def check(cmd, usr):
         animate.animate(cmd)
     elif cmd.lower() == "exit" or cmd.lower() == "shutdown":
         exit.rl()
-    elif cmd.lower().startswith("pkgm install"):
-        pkgm.install(cmd)
+    elif cmd.lower().startswith("yit install"):
+        yit.install(cmd)
     elif cmd.lower().startswith("tutr read"):
         tutr.tutr_read(cmd.lower().split(' ')[2])
     elif cmd.lower().startswith("exec"):
         execute.exec(cmd)
-    elif cmd.lower() == "pkgm list":
-        pkgm.list()
-    elif cmd.lower().startswith("pkgm run") or cmd.lower().startswith("./"):
-        pkgm.run(cmd)
-    elif cmd.lower().startswith("pkgm uninstall"):
-        pkgm.uninstall(cmd)
+    elif cmd.lower() == "yit list":
+        yit.list()
+    elif cmd.lower().startswith("yit run") or cmd.lower().startswith("./"):
+        yit.run(cmd)
+    elif cmd.lower().startswith("yit uninstall"):
+        yit.uninstall(cmd)
     elif cmd.lower() == "mkusr" or cmd.lower() == "makeuser":
         usr.mkusr()
     elif cmd.lower() == "hostname":
         sys.hostname(usr)
-    elif cmd.lower() == "pkgm-gui":
-        command = 'pkgm install ' + guipkgm.run()
-        pkgm.install(command)
+    elif cmd.lower() == "yit-gui":
+        command = 'yit install ' + guiyit.run()
+        yit.install(command)
     elif cmd.lower() == "matrix":
         matrix.run()
     elif cmd.lower().startswith("add-package"):
-        pkgm.add_package(cmd.lower().split(' ')[1], cmd.lower().split(' ')[2])
+        yit.add_package(cmd.lower().split(' ')[1], cmd.lower().split(' ')[2])
     else:
         if math == 0:print("Command not found run help for list of commands")
         math = 1

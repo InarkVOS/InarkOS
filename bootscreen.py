@@ -26,6 +26,7 @@ from colorama import init
 import time
 import random
 import sys
+import time as t
 
 w, h = os.get_terminal_size()
 targets = [
@@ -215,7 +216,7 @@ if '--noboot' not in sys.argv:
     data = open('sys_settings.cfg', 'r').readlines()
     for i in range(len(data)):
         if data[i].split('=')[0] == 'phaseboot':
-            if data[i].split('=')[1].replace('\n', '') == 'True':
+            if data[i].split('=')[1].replace('\n', '') == '\'phase\'':
                 os.system(clear_command)
 
                 fancyboot()
@@ -227,7 +228,7 @@ if '--noboot' not in sys.argv:
                 v = 0
 
                 for i in range(255):
-                    os.system('cls')
+                    os.system(clear_command)
                     if v%255 == 0:
                         if a == 1:
                             a = 0
@@ -245,9 +246,7 @@ if '--noboot' not in sys.argv:
                     cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║╚████║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗')
                     cprint(0, 0, v, ' '*((w//2)-(58//2)) + '██║██║ ╚███║██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝')
                     cprint(0, 0, v, ' '*((w//2)-(58//2)) + '╚═╝╚═╝  ╚══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ')
-                    for i in range(h//2-4):
-                        print()
-            else:
+            elif data[i].split('=')[1].replace('\n', '') == '\'normal\'':
                 init()
 
                 os.system(clear_command)
@@ -288,6 +287,33 @@ if '--noboot' not in sys.argv:
                     endwin()
                 except Exception as e:
                     print(e)
+            elif data[i].split('=')[1].replace('\n', '') == '\'D-boot\'':
+                os.system(clear_command)
+
+                fancyboot()
+                del targets
+                def cprint(r, g, b, text):
+                    print("\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text))
+
+                on = [1, 0, 0, 0, 0, 0]
+
+                v = 0
+
+                for i in range(20):
+                    os.system(clear_command)
+                   
+                    for j in range(h//2-3):
+                        print()
+
+                    v = i%6
+
+                    cprint(0, 0, 255 if v == 0 else 100, ' '*((w//2)-(58//2)) + '██╗███╗  ██╗ █████╗ ██████╗ ██╗  ██╗       █████╗  ██████╗')
+                    cprint(0, 0, 255 if v == 1 else 100, ' '*((w//2)-(58//2)) + '██║████╗ ██║██╔══██╗██╔══██╗██║ ██╔╝      ██╔══██╗██╔════╝')
+                    cprint(0, 0, 255 if v == 2 else 100, ' '*((w//2)-(58//2)) + '██║██╔██╗██║███████║██████╔╝█████═╝ █████╗██║  ██║╚█████╗ ')
+                    cprint(0, 0, 255 if v == 3 else 100, ' '*((w//2)-(58//2)) + '██║██║╚████║██╔══██║██╔══██╗██╔═██╗ ╚════╝██║  ██║ ╚═══██╗')
+                    cprint(0, 0, 255 if v == 4 else 100, ' '*((w//2)-(58//2)) + '██║██║ ╚███║██║  ██║██║  ██║██║ ╚██╗      ╚█████╔╝██████╔╝')
+                    cprint(0, 0, 255 if v == 5 else 100, ' '*((w//2)-(58//2)) + '╚═╝╚═╝  ╚══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚════╝ ╚═════╝ ')
+                    t.sleep(0.5)
 
 os.system(clear_command)
 

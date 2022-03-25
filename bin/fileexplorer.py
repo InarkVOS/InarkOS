@@ -10,7 +10,6 @@ else:
 					return 'ENTER'
 				else:
 					return e.replace('KEY_', '')
-import keyboard
 import sys
 w, h = os.get_terminal_size()
 selidx = 0
@@ -86,5 +85,5 @@ if '--run' in sys.argv:
 						selidx = 0
 					if items[selidx] != '>back<' and os.path.isfile(paths[-1] + '/' + items[selidx]):
 						os.system(f'python3 bin/texteditor.py --run --user {usr} --file ' + paths[-1] + '/' + items[selidx])
-	except Exception as e:
-		print(e)
+	except:
+		pass

@@ -215,7 +215,7 @@ if '--noboot' not in sys.argv:
 
     data = open('sys_settings.cfg', 'r').readlines()
     for i in range(len(data)):
-        if data[i].split('=')[0] == 'phaseboot':
+        if data[i].split('=')[0] == 'boot-type':
             if data[i].split('=')[1].replace('\n', '') == '\'phase\'':
                 os.system(clear_command)
 

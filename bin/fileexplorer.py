@@ -115,10 +115,10 @@ if '--run' in sys.argv:
 				if key == 'UP':
 					if selidx != 0:
 						selidx -= 1
-				if key == 'ENTER' and selidx == length-1:
-					os.system('cls')
-					done = 1
-				elif key == 'ENTER':
+				if key == 'ENTER':
+					if items[selidx] == '>quit<':
+						os.system('clear')
+						done = 1
 					if items[selidx] != '>back<' and os.path.isdir(paths[-1] + '/' + items[selidx]):
 						paths.append(paths[-1] + '/' + items[selidx])
 						selidx = 0

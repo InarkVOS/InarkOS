@@ -9,15 +9,15 @@ if 'MainDrive' not in os.listdir():
 
     print("Please wait until we install the dependencies...")
 
-    os.system(f"{pip} install -r req.txt --no-warn-script-location")
-    os.system(f"{pip}3 install -r req.txt --no-warn-script-location")
-    os.system(f"{python} -m pip install -r req.txt --no-warn-script-location")
-    os.system(f"{python}3 -m pip install -r req.txt --no-warn-script-location")
+    os.system(f"{pip} install -r req.txt")
+    os.system(f"{python} -m pip install -r req.txt")
+    if os.name == 'nt':
+        os.system(f"{pip}3 install -r req.txt")
+        os.system(f"{python}3 -m pip install -r req.txt")
     if os.name == 'nt':
         os.system('pip install windows-curses')
         os.system('pip install msvcrt')
     else:
-        os.system('pip install curses')
         os.system('pip install curtsies')
     os.system('cls')
 from curses import *

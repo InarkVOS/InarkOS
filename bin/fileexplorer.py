@@ -15,7 +15,7 @@ w, h = os.get_terminal_size()
 selidx = 0
 done = 0
 paths = ['MainDrive']
-customs = ['>back<', '>quit<', '>delete<', '>rename<']
+customs = ['>back<', '>quit<', '>delete<', '>rename<', '>make file<', '>make folder<']
 selected = []
 
 def update(path):
@@ -24,6 +24,8 @@ def update(path):
 	if len(paths) != 1:
 		files.append('>back<')
 	files.append('>quit<')
+	files.append('>make file<')
+	files.append('>make folder<')
 	if len(selected) != 0:
 		files.append('>delete<')
 	if len(selected) == 1:
@@ -75,7 +77,10 @@ if '--run' in sys.argv:
 								idx = selected.index(items[i])
 								if os.name == 'nt':
 									thing = paths[-1].replace('/', '\\')
-									os.system(f'del /f {thing}\\{selected[idx]}')
+									if os.path.isdir(f'{thing}\\{selected[idx]}'):
+										os.system(f'rmdir {thing}\\{selected[idx]}')
+									else:
+										os.system(f'del /f {thing}\\{selected[idx]}')
 								selected.remove(items[i])
 						selidx = 0
 					if len(selected) == 1 and '>rename<' in items and items[selidx] == '>rename<':
@@ -88,10 +93,18 @@ if '--run' in sys.argv:
 							os.chdir('..')
 						selected.remove(selected[0])
 						selidx = 0
-
-
-					if items[selidx] == '>rename<':
-						pass
+					if items[selidx] == '>make file<':
+						os.chdir(paths[-1])
+						fname = input('Enter the file name: ')
+						open(fname, 'w').write('')
+						for i in range(len(paths[-1].split('/'))):
+							os.chdir('..')
+					if items[selidx] == '>make folder<':
+						os.chdir(paths[-1])
+						fname = input('Enter the folder name: ')
+						os.mkdir(fname)
+						for i in range(len(paths[-1].split('/'))):
+							os.chdir('..')
 		else:
 			while not done:
 				length, items = update(paths[-1])

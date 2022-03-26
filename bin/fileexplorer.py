@@ -15,16 +15,19 @@ w, h = os.get_terminal_size()
 selidx = 0
 done = 0
 paths = ['MainDrive']
-customs = ['>back<', '>quit<', '>delete<']
+customs = ['>back<', '>quit<', '>delete<', '>rename<']
 selected = []
 
 def update(path):
-	os.system('cls')
 	files = os.listdir(path)
+	os.system('cls')
 	if len(paths) != 1:
 		files.append('>back<')
 	files.append('>quit<')
-	files.append('>delete<')
+	if len(selected) != 0:
+		files.append('>delete<')
+	if len(selected) == 1:
+		files.append('>rename<')
 	for i in range(len(files)):
 		if i == selidx:
 			print('* ', end='')
@@ -75,6 +78,20 @@ if '--run' in sys.argv:
 									os.system(f'del /f {thing}\\{selected[idx]}')
 								selected.remove(items[i])
 						selidx = 0
+					if len(selected) == 1 and '>rename<' in items and items[selidx] == '>rename<':
+						newname = input(f'Enter the new file name for {selected[0]}: ')
+						thing = os.getcwd().replace('\\', '/')
+						thinga = paths[-1].replace('\\', '/')
+						os.chdir(paths[-1])
+						os.system(f'rename {selected[0]} {newname}')
+						for i in range(len(paths[-1].split('/'))):
+							os.chdir('..')
+						selected.remove(selected[0])
+						selidx = 0
+
+
+					if items[selidx] == '>rename<':
+						pass
 		else:
 			while not done:
 				length, items = update(paths[-1])

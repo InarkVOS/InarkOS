@@ -1,4 +1,4 @@
-
+🌍[Englisch](README.md)
 # InarkOS
 InarkOS ist ein (Virtuelles)Betriebssystem das in 100% Python geschrieben ist.  
 **Das Programm ist grade in Entwicklung!**

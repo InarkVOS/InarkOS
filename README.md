@@ -2,7 +2,7 @@
 
 # InarkOS
 InarkOS is a operating system(Virtual OS) written in 100% Python   
-**Note: The program is currently in development!**
+**This project is no longer maintained and we are NOT looking for anyone to continue it**
 
 #
 # Installing
@@ -25,6 +25,3 @@ Github  - RevolvingMadness
 # 3rd Dev Is demongamer3001
 Discord - userrname#7395  
 Github  - demongamer3001  
-
-# 4th Dev is Intel
-Discord - Intel#1563
